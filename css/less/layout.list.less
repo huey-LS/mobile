@@ -1,0 +1,133 @@
+/**
+ * Stylesheet
+ *
+ * @namespace Lungo.Layout
+ * @class List
+ *
+ * @author Javier Jimenez Villar <javi@tapquo.com> || @soyjavi
+ */
+
+.list {
+  li {
+    list-style-type: none;
+    position: relative;
+    text-align: -webkit-match-parent;
+    line-height: inherit;
+
+    :not(.big) {
+      padding: @INDENT;
+    }
+
+    .thumb {
+      .display-box()
+      .box-orient(horizontal)
+      > div {
+        .box-flex(1)
+      }
+
+      .big {
+        > img {
+          width: @LIST_BIG_IMAGE;
+          height: @LIST_BIG_IMAGE;
+        }
+        > div {
+          padding: 0.25em (@INDENT / 2);
+        }
+      }
+
+      :not(.big) {
+        > img {
+          width: @LIST_IMAGE;
+          height: @LIST_IMAGE;
+        }
+        > div {
+          padding-left: @INDENT;
+        }
+      }
+    }
+
+    .arrow::after {
+      @SIZE: 0.5em;
+      position: absolute;
+      right: @SIZE;
+      top: 45%;
+      width: @SIZE;
+      height: @SIZE;
+      content: '';
+      border-right: (@SIZE / 2) solid;
+      border-top: (@SIZE / 2) solid;
+      transform: rotate(45deg);
+    }
+
+    a {
+      display: block;
+      text-decoration: none;
+    }
+
+    .icon {
+      display: inline-block;
+      float: left;
+      margin-right: (@INDENT / 2);
+      text-align: center;
+      line-height: 1.0em;
+      width: @S = @LIST_SMALL_IMAGE;
+      height: @S;
+      font-size: @FONT_SIZE_LARGE;
+    }
+
+    .anchor {
+      padding: 0.25em 0.5em;
+      .tag {
+        display: none;
+      }
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    small {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      display: block;
+    }
+
+    small{
+      + .on-right {
+        margin-left: 0;
+        margin-top: -1.4em;
+      }
+    }
+
+    small,
+    .anchor{
+      font-size: @FONT_SIZE_SMALL;
+    }
+
+    .on-right:not(.tag) {
+      font-size: @FONT_SIZE_TINY;
+    }
+    .on-right.tag {
+      padding-left: @SIZE = 0.4em;
+      padding-right: @SIZE;
+      text-shadow: none;
+    }
+  }
+
+  .on-right,
+  small {
+    .icon {
+      font-size: inherit !important;
+      width: auto !important;
+      height: auto !important;
+    }
+  }
+
+  .indented li:not(:last-child) {
+    margin-bottom: @INDENT;
+  }
+}
