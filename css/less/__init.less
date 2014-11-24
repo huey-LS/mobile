@@ -9,7 +9,7 @@
 @ASIDE_WIDTH_SMALL       : 64px;
 @ASIDE_SMALL_ICON        : 48px;
 
-@DEFAULT_TRANSITION      : .cubic-bezier(0.645, 0.045, 0.355, 1.000);
+@DEFAULT_TRANSITION      : cubic-bezier(0.645, 0.045, 0.355, 1.000);
 @TRANSITION_TIME         : 500ms;
 
 
@@ -19,16 +19,74 @@
 @FONT_SIZE_BIG           : 1.2em;
 @FONT_SIZE_LARGE         : 1.4em;
 
-@LIST_IMAGE              : 44px;
-@LIST_BIG_IMAGE          : 65px;
+@LIST_IMAGE              : 66px;
+@LIST_BIG_IMAGE          : 120px;
 @LIST_SMALL_IMAGE        : 24px;
 
 @INDENT                  : 0.8em;
 
+@DETAIL_IMAGE            :;
+@DETAIL_BIG_IMAGE        :;
+
 @FORM_HEIGHT             : 30px;
 @FORM_border             : 2px;
-@FORM_border_height      : FORM_HEIGHT + (FORM_border * 4)
+@FORM_border_height      : @FORM_HEIGHT + (@FORM_border * 4);
 @FORM_PROGRESS_HEIGHT    : 5px;
 @FORM_RADIO_BUTTON       : 26px;
+@FORM_color              : #e5e5e5;
 
 @BUTTON_HEIGHT           : 34px;
+@BUTTON_color            : #fff;
+@BUTTON_border           : #ccc;
+@BUTTON_border_radius    : 0.25rem;
+@BUTTON_submit_font      : #fff;
+@BUTTON_submit_color     : #0095c1;
+@BUTTON_submit_border    : #006e79;
+
+@SUCCESS                 : #2ecc71;
+
+.vendor(@name, @args) {
+  -webkit-@{name}: @args;
+  -moz-@{name}: @args;
+  -ms-@{name}: @args;
+  -o-@{name}: @args;
+  @{name}: @args;
+}
+
+.box-sizing(@value){
+  .vendor(box-sizing, @value);
+}
+.display-box(){
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: -o-box;
+  display: box;
+}
+.box-flex(@value){
+  .vendor(box-flex, @value);
+}
+.box-orient(@value){
+  .vendor(box-orient, @value);
+}
+.box-pack(@value){
+  .vendor(box-pack, @value);
+}
+.box-align(@value){
+  .vendor(box-align, @value);
+}
+.ordinal-group(@value){
+  .vendor(box-ordinal-group, @value);
+}
+.border-radius(@value){
+  .vendor(border-radius, @value);
+}
+.transform(@value){
+  .vendor(transform, @value);
+}
+.transform-origin(@value){
+  .vendor(transform-origin, @value);
+}
+.transition(@value){
+  .vendor(transition, @value);
+}

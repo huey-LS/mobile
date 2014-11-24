@@ -21,28 +21,28 @@ body {
   /* ========================================================================= */
   > aside,
   > section {
-    .display-box()
-    .box-orient(vertical)
+    .display-box();
+    .box-orient(vertical);
     height: inherit;
     webkit-transform: translate3d(0,0,0);
 
     > header,
     > footer {
-      .box-flex(0)
+      .box-flex(0);
       z-index: 3;
       position: relative;
     }
 
     > header {
-      .ordinal-group(1)
+      .ordinal-group(1);
 
       // position: fixed
       // width: 100%
     }
 
     > article {
-      .box-flex(1)
-      .ordinal-group(2)
+      .box-flex(1);
+      .ordinal-group(2);
       z-index: -1;
       // padding-top: @HEADER_HEIGHT
     }
@@ -56,16 +56,16 @@ body {
     > footer {
       height: @HEADER_HEIGHT;
       line-height: @HEADER_HEIGHT;
-    
+
       > nav {
-        box-flex(0)
+        .box-flex(0);
       }
 
       > .title {
         z-index: -1;
         float: left;
         font-size: @FONT_SIZE_BIG;
-        box-flex(1)
+        .box-flex(1);
         .centered {
           position: absolute;
           left: (@INDENT * 2);
@@ -82,8 +82,8 @@ body {
       }
 
       > img.title {
-        PAD = 18px;
-        height: (@HEADER_HEIGHT - PAD);
+        @PAD: 18px;
+        height: (@HEADER_HEIGHT - @PAD);
         margin: (@PAD / 2) auto;
       }
     }
@@ -93,19 +93,19 @@ body {
       visibility: hidden;
       display: none;
     }
-    .show > article.active,
-    .hide > article.active,
-    .hiding > article.active {
+    &.show > article.active,
+    &.hide > article.active,
+    &.hiding > article.active {
       visibility: visible;
       display: block;
       z-index: 1;
       height: inherit;
-      .pull {
-        transition-property: transform;
-        transition-duration: @TRANSITION_TIME;
+      &.pull {
+        .vendor(transition-property, transform);
+        .vendor(transition-duration, @TRANSITION_TIME);
       }
     }
-    [data-article].hide {
+    &[data-article].hide {
       display: none;
     }
   }
@@ -149,9 +149,10 @@ body {
   /* ========================================================================= */
   /* =============================== EXCLUDE OS ============================== */
   /* ========================================================================= */
+
   [data-os=ios] {
-    [data-os=android], 
-    [data-os=blackerry], 
+    [data-os=android],
+    [data-os=blackerry],
     [data-os=firefoxos] {
       display: none;
     }

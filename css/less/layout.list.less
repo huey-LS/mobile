@@ -14,18 +14,18 @@
     text-align: -webkit-match-parent;
     line-height: inherit;
 
-    :not(.big) {
+    &:not(.big) {
       padding: @INDENT;
     }
 
-    .thumb {
-      .display-box()
-      .box-orient(horizontal)
+    &.thumb {
+      .display-box();
+      .box-orient(horizontal);
       > div {
-        .box-flex(1)
+        .box-flex(1);
       }
 
-      .big {
+      &.big {
         > img {
           width: @LIST_BIG_IMAGE;
           height: @LIST_BIG_IMAGE;
@@ -35,7 +35,7 @@
         }
       }
 
-      :not(.big) {
+      &:not(.big) {
         > img {
           width: @LIST_IMAGE;
           height: @LIST_IMAGE;
@@ -46,7 +46,7 @@
       }
     }
 
-    .arrow::after {
+    &.arrow:after {
       @SIZE: 0.5em;
       position: absolute;
       right: @SIZE;
@@ -56,7 +56,7 @@
       content: '';
       border-right: (@SIZE / 2) solid;
       border-top: (@SIZE / 2) solid;
-      transform: rotate(45deg);
+      .vendor(transform, rotate(45deg));
     }
 
     a {
@@ -64,22 +64,8 @@
       text-decoration: none;
     }
 
-    .icon {
-      display: inline-block;
-      float: left;
-      margin-right: (@INDENT / 2);
-      text-align: center;
-      line-height: 1.0em;
-      width: @S = @LIST_SMALL_IMAGE;
-      height: @S;
-      font-size: @FONT_SIZE_LARGE;
-    }
-
-    .anchor {
+    &.anchor {
       padding: 0.25em 0.5em;
-      .tag {
-        display: none;
-      }
     }
 
     h1,
@@ -96,38 +82,18 @@
       display: block;
     }
 
-    small{
-      + .on-right {
-        margin-left: 0;
-        margin-top: -1.4em;
-      }
+    small + .on-right {
+      margin-left: 0;
+      margin-top: -1.4em;
     }
 
     small,
     .anchor{
       font-size: @FONT_SIZE_SMALL;
     }
-
-    .on-right:not(.tag) {
-      font-size: @FONT_SIZE_TINY;
-    }
-    .on-right.tag {
-      padding-left: @SIZE = 0.4em;
-      padding-right: @SIZE;
-      text-shadow: none;
-    }
   }
 
-  .on-right,
-  small {
-    .icon {
-      font-size: inherit !important;
-      width: auto !important;
-      height: auto !important;
-    }
-  }
-
-  .indented li:not(:last-child) {
+  &.indented li:not(:last-child) {
     margin-bottom: @INDENT;
   }
 }

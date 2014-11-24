@@ -1,0 +1,72 @@
+body {
+  background-color: #f5f5f5;
+}
+section {
+  header {
+    border-bottom: 1px solid #e1e2e3;
+
+    .login {
+      a {
+        color: #03919f;
+      }
+    }
+  }
+}
+
+.list {
+  li {
+
+    &:not(.user){
+      background-color: #fff;
+    }
+    &.file_info {
+      border-bottom: 1px solid #edead3;
+      color: #707070;
+      background-color: #faf8e5;
+    }
+    &.files,
+    &.user {
+      border-bottom: 1px solid #e1e2e3;
+
+      small {
+        color: #afafaf;
+      }
+    }
+  }
+}
+
+form,
+.form {
+  input[type=checkbox] {
+    background-color: @FORM_color;
+    border: 1px solid @FORM_color;
+    .vendor(box-shadow, inset 0 0 0 1px @FORM_color);
+
+    &:after {
+      background-color: #fff;
+      border: 1px solid @FORM_color;
+    }
+    &:checked {
+      border-color: @SUCCESS;
+      box-shadow: inset 0 0 0 13px @SUCCESS;
+      &:after {
+        border-color: @SUCCESS;
+      }
+    }
+  }
+}
+
+.notification {
+  background-color: rgba(0,0,0,0.5);
+
+  & .window {
+    .vendor(box-shadow, 0 0 0 3px rgba(0,0,0,0.1));
+
+    &.html {
+      background-color: #fff;
+    }
+    &.growl {
+      background-color: rgba(0,0,0,0.8);
+    }
+  }
+}

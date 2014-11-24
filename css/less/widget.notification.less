@@ -1,0 +1,80 @@
+/**
+ * Stylesheet
+ *
+ * @namespace Lungo.Widgets
+ * @class Notification
+ *
+ * @author Javier Jimenez Villar <javi@tapquo.com> || @soyjavi
+ */
+
+@LOADING: 104px;
+@WINDOW_WIDTH: 100%;
+
+.notification {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1980;
+  display: none;
+
+  &.show {
+    .display-box();
+    .box-align(center);
+    .box-pack(center);
+  }
+
+  &.push {
+    height: (@HEADER_HEIGHT / 1.75);
+  }
+
+  & .window {
+    position: relative;
+    opacity: 0;
+    text-align: center;
+    .vendor(transition-duration, (@TRANSITION_TIME / 2));
+    .vendor(transition-timing-function, @DEFAULT_TRANSITION);
+    .vendor(backface-visibility, hidden);
+
+    &.show {
+      opacity: 1;
+    }
+
+    &:not(.push) {
+      @property: opacity, margin-top;
+      .vendor(transition-property, @property);
+      margin-top: 100%;
+      &.show {
+        margin-top: 0%;
+      }
+    }
+
+    &.growl {
+      width: @LOADING !important;
+      height: @LOADING !important;
+      & > * {
+        position: absolute;
+      }
+      &, & > *:not(.loading) {
+        width: @LOADING;
+        text-align: center;
+      }
+
+      & > .loading {
+        top: 28px;
+      }
+    }
+
+    &.html {
+      width: @WINDOW_WIDTH;
+      margin-top: 100%;
+
+      .title {
+        height: @HEADER_HEIGHT;
+        line-height: @HEADER_HEIGHT;
+        font-size: @FONT_SIZE_BIG;
+      }
+    }
+  }
+}

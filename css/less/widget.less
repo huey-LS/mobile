@@ -1,0 +1,178 @@
+/**
+ * Stylesheet
+ *
+ * @namespace Lungo.Layout
+ * @class Widgets
+ *
+ * @author Javier Jimenez Villar <javi@tapquo.com> || @soyjavi
+ */
+
+/* ================================  CLASSES  ================================ */
+.hidden {
+  display: none;
+}
+.block {
+  display: block;
+}
+.inline {
+  display: inline;
+}
+.inline-block {
+  display: inline-block;
+}
+
+//@INDENT: (@INDENT / 1.5);
+.indented > * {
+  padding: @INDENT;
+}
+.margined > * {
+  margin: @INDENT;
+}
+
+.margin-top {
+  margin-top: @INDENT;
+}
+.margin-right {
+  margin-right: @INDENT;
+}
+.margin-bottom {
+  margin-bottom: @INDENT;
+}
+.margin-left {
+  margin-left: @INDENT;
+}
+
+
+.on-left {
+  float: left;
+}
+.on-right {
+  float: right;
+}
+
+/* ================================  SCROLL  ================================ */
+.overthrow-enabled .overthrow {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scroll {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  -webkit-box-flex: 1;
+
+  // & > *
+  //   background: -webkit-linear-gradient(white 30%, hsla(0,0%,100%,0)), -webkit-linear-gradient(hsla(0,0%,100%,0), white 70%) bottom, -webkit-radial-gradient(50% 0, rgba(0,0,0,.2), transparent 70%), -webkit-radial-gradient(50% 100%, rgba(0,0,0,.2), transparent 70%) bottom;
+  //   background-repeat: no-repeat;
+  //   background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
+  //   background-attachment: local, local, scroll, scroll;
+
+
+  &.horizontal {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+  }
+
+  /* BUG (iOS) POSITION: relative childrens */
+  * {
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+}
+
+/* ================================  TAG  ================================ */
+.tag {
+  @SIZE: 16px;
+  font-size: @FONT_SIZE_TINY;
+  min-width: @SIZE + 1;
+  height: @SIZE;
+  line-height: @SIZE !important;
+  text-align: center;
+  z-index: 1;
+  display: inline-block !important;
+}
+
+/* ================================  .LAYOUT  ================================ */
+.layout {
+  .display-box();
+  height:  inherit !important;
+  &:not(.horizontal) {
+    .box-orient(vertical);
+    > [data-layout=middle] {
+      height: 50%;
+    }
+    > [data-layout=third] {
+      height: 33%
+    }
+    > [data-layout=quarter] {
+      height: 25%
+    }
+  }
+
+  &.horizontal {
+    .box-orient(horizontal);
+    > [data-layout=middle] {
+      width: 50%;
+    }
+    > [data-layout=third] {
+      width: 33%;
+    }
+    > [data-layout=quarter] {
+      width: 25%;
+    }
+  }
+
+  > * {
+    .box-flex(1);
+  }
+  > [data-layout=secondary] {
+    .box-flex(2);
+  }
+  > [data-layout=primary] {
+    .box-flex(3);
+  }
+}
+
+/* ================================  MENU  ================================ */
+[data-view-menu] {
+  &:after {
+    content: "▼";
+    position: relative;
+    top: -5px;
+    left: 1px;
+    font-size: FONT_SIZE_TINY;
+  }
+}
+
+
+/* ================================  CAROUSEL  ================================ */
+[data-control=carousel]{
+  overflow: hidden;
+  list-style: none;
+  margin: 0;
+}
+
+
+/* ================================  SPLASH  ================================ */
+body > section > article.splash {
+  text-align: center;
+  padding: (@INDENT * 2.5);
+  .logo {
+    max-width: 192px;
+    margin: 20% 0 7.5% 0;
+    font-size: 2.2em;
+  }
+  .button,
+  button {
+    margin-bottom: (@INDENT / 1.5);
+  }
+  .copyright {
+    position: absolute;
+    width: 100%;
+    bottom: 8px;
+    left: 0;
+    font-size: @FONT_SIZE_TINY;
+    padding: 0;
+  }
+}

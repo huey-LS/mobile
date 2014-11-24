@@ -1,0 +1,77 @@
+/**
+ * Stylesheet
+ *
+ * @namespace Lungo.Widgets
+ * @class Button
+ *
+ * @author Javier Jimenez Villar <javi@tapquo.com> || @soyjavi
+ */
+
+.button,
+button {
+  display: inline-block;
+  border: 1px solid @BUTTON_border;
+  .vendor(border-radius, @BUTTON_border_radius);
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: inherit;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  background: none;
+  background-color: @BUTTON_color;
+  font-size: inherit;
+
+  &.submit {
+    color: @BUTTON_submit_font;
+    border-color: @BUTTON_submit_border;
+    background-color: @BUTTON_submit_color;
+  }
+
+  header & {
+    & > abbr {
+      font-size: @FONT_SIZE_SMALL;
+    }
+    & .icon + abbr {
+      position: relative;
+      left: 0.3em;
+      top: 0.5em;
+      float: right;
+    }
+  }
+
+  article & {
+    line-height: 2.5em;
+    &.icon {
+      padding: 0 0.65em;
+    }
+    &:not(.icon) {
+      padding: 0 1em;
+      & .icon + abbr {
+        margin-left: 0.5em;
+      }
+    }
+
+    &.large {
+      font-size: @FONT_SIZE_LARGE;
+    }
+    &.small {
+      font-size: @FONT_SIZE_SMALL;
+      line-height: 2.25em;
+    }
+    &.tiny {
+      font-size: @FONT_SIZE_TINY;
+      line-height: 2.0em;
+      padding: 0 0.6em;
+    }
+    &.anchor {
+      width: 100%;
+      position: relative;
+      padding: 0;
+      &:not(.icon) .icon {
+        position: absolute;
+        left: 1.0em;
+      }
+    }
+  }
+}
