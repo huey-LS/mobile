@@ -1,0 +1,169 @@
+/* logo */
+@LOGO_IMAGE              : "../images/logo.png";
+@LOGO_WIDTH              : 101px;
+@LOGO_HEIGHT             : 24px;
+@LOGO_LARGE_IMAGE        : "../images/logo-big.png";
+@LOGO_LARGE_WIDTH        : 120px;
+@LOGO_LARGE_HEIGHT       : 80px;
+
+/* color */
+@FONT_COLOR              : #03919f;
+@ERROR_COLOR             : #d70000;
+@INTUT_BACKGROUND_COLOR  : #fff;
+@INTUT_BORDER_COLOR      : #d2d6d8;
+@INTUT_BORDER_COLOR_FOCUS: #03919f;
+@BUTTON_COLOR            : #03919f;
+@BUTTON_BACKGROUND_COLOR : #fff;
+@BUTTON_BORDER_COLOR     : #ccc;
+@SUBMIT_COLOR            : #fff;
+@SUBMIT_BACKGROUND_COLOR : #03919f;
+@SUBMIT_BORDER_COLOR     : #006e79;
+
+/* border */
+@BORDER_WIDTH            : 1px;
+@BORDER_STYLE            : solid;
+@BORDER_COLOR            : #d2d6d8;
+@BORDER_RADIUS           : 4px;
+
+/* list border */
+@LIST_BORDER_COLOR       : #e1e2e3;
+@LIST_BACKGROUND_COLOR   : #fff;
+@LIST_ANCHOR_BORDER_COLOR: #edead3;
+@LIST_ANCHOR_BACKGROUND_COLOR: #faf8e5;
+@LIST_SMALL_COLOR        : #afafaf;
+
+
+.logo {
+  width: @LOGO_WIDTH;
+  height: @LOGO_HEIGHT;
+  background-image: url(@LOGO_IMAGE);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.logo-large {
+  width: @LOGO_LARGE_WIDTH;
+  height: @LOGO_LARGE_HEIGHT;
+  background-image: url(@LOGO_LARGE_IMAGE);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.error.text {
+  color: @ERROR_COLOR;
+}
+.error.border {
+  border-color: @ERROR_COLOR;
+}
+
+.border {
+  border-width: @BORDER_WIDTH;
+  border-style: @BORDER_STYLE;
+  border-color: @BORDER_COLOR;
+}
+
+.border-top {
+  border-top-width: @BORDER_WIDTH;
+  border-top-style: @BORDER_STYLE;
+  border-top-color: @BORDER_COLOR;
+}
+.border-left {
+  border-left-width: @BORDER_WIDTH;
+  border-left-style: @BORDER_STYLE;
+  border-left-color: @BORDER_COLOR;
+}
+.border-right {
+  border-right-width: @BORDER_WIDTH;
+  border-right-style: @BORDER_STYLE;
+  border-right-color: @BORDER_COLOR;
+}
+.border-bottom {
+  border-bottom-width: @BORDER_WIDTH;
+  border-bottom-style: @BORDER_STYLE;
+  border-bottom-color: @BORDER_COLOR;
+}
+
+.border-radius {
+  .border-radius(@BORDER_RADIUS);
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="url"],
+input[type="number"],
+input[type="range"],
+input[type="date"],
+input[type="seach"] {
+  border-color: @INTUT_BORDER_COLOR;
+  background-color: @INTUT_BACKGROUND_COLOR;
+}
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="number"]:focus,
+input[type="range"]:focus,
+input[type="date"]:focus,
+input[type="seach"]:focus {
+  border-color: @INTUT_BORDER_COLOR_FOCUS;
+}
+
+.font-color {
+  color: @FONT_COLOR;
+}
+
+.button,
+button {
+  border-color: @BUTTON_BORDER_COLOR;
+  color: @BUTTON_COLOR;
+  background-color: @BUTTON_BACKGROUND_COLOR;
+}
+.button.submit,
+button.submit {
+  border-color: @SUBMIT_BORDER_COLOR;
+  color: @SUBMIT_COLOR;
+  background-color: @SUBMIT_BACKGROUND_COLOR;
+
+  &:active {
+    background-color: @SUBMIT_BORDER_COLOR;
+  }
+}
+
+.list {
+  li {
+    &.thumb {
+      background-color: @LIST_BACKGROUND_COLOR;
+
+      &.border,
+      &.border-top,
+      &.border-bottom,
+      &.border-left,
+      &.border-right {
+        border-color: @LIST_BORDER_COLOR;
+      }
+    }
+
+    &.anchor {
+      background-color: @LIST_ANCHOR_BACKGROUND_COLOR;
+
+      &.border,
+      &.border-top,
+      &.border-bottom,
+      &.border-left,
+      &.border-right {
+        border-color: @LIST_ANCHOR_BORDER_COLOR;
+      }
+    }
+
+    small {
+      color: @LIST_SMALL_COLOR;
+    }
+  }
+}
+
+.detail {
+  small {
+    color: @LIST_SMALL_COLOR;
+  }
+}

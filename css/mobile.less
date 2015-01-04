@@ -2,48 +2,8 @@
 
 /* CONSTANTS */
 @HEADER_HEIGHT           : 46px;
-@HEADER_GROUPBAR_HEIGHT  : 36px;
-
 @ASIDE_WIDTH             : 256px;
-@ASIDE_PADDING           : 6px;
-@ASIDE_WIDTH_SMALL       : 64px;
-@ASIDE_SMALL_ICON        : 48px;
 
-@DEFAULT_TRANSITION      : cubic-bezier(0.645, 0.045, 0.355, 1.000);
-@TRANSITION_TIME         : 500ms;
-
-
-@FONT_SIZE_TINY          : 11px;
-@FONT_SIZE_SMALL         : 0.9em;
-@FONT_SIZE_NORMAL        : 1.0em;
-@FONT_SIZE_BIG           : 1.2em;
-@FONT_SIZE_LARGE         : 1.4em;
-
-@LIST_IMAGE              : 66px;
-@LIST_BIG_IMAGE          : 120px;
-@LIST_SMALL_IMAGE        : 24px;
-
-@INDENT                  : 0.8em;
-
-@DETAIL_IMAGE            :;
-@DETAIL_BIG_IMAGE        :;
-
-@FORM_HEIGHT             : 30px;
-@FORM_border             : 2px;
-@FORM_border_height      : @FORM_HEIGHT + (@FORM_border * 4);
-@FORM_PROGRESS_HEIGHT    : 5px;
-@FORM_RADIO_BUTTON       : 26px;
-@FORM_color              : #e5e5e5;
-
-@BUTTON_HEIGHT           : 34px;
-@BUTTON_color            : #fff;
-@BUTTON_border           : #ccc;
-@BUTTON_border_radius    : 0.25rem;
-@BUTTON_submit_font      : #fff;
-@BUTTON_submit_color     : #0095c1;
-@BUTTON_submit_border    : #006e79;
-
-@SUCCESS                 : #2ecc71;
 
 .vendor(@name, @args) {
   -webkit-@{name}: @args;
@@ -93,10 +53,7 @@
 /**
  * Stylesheet
  *
- * @namespace Lungo
- * @class Base
- *
- * @author Javier Jimenez Villar <javi@tapquo.com> || @soyjavi
+ * @class base
  */
 
 a,
@@ -207,18 +164,12 @@ body {
   -moz-user-select: moz-none;
   user-select: none;
 
-
-  // @TODO: Why??
-  // -webkit-box-orient: vertical
-  // -webkit-box-align: stretch
-  // -webkit-tap-highlight-color: rgba(0,0,0,0)
   .display-box();
 
   * {
     .box-sizing(border-box);
     margin: 0;
     padding: 0;
-    // -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   }
 }
 
@@ -237,9 +188,6 @@ img {
   font-size: 0;
 }
 
-// strong
-//   font-weight: 600
-
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -249,12 +197,558 @@ th, td, caption {
   vertical-align: top;
   text-align: left;
 }
+/**
+ * Stylesheet
+ *
+ * @class layout.detail
+ */
 
-/* ================
-@media="all"{
-  ::-webkit-scrollbar{
-    width: 1px;
-    height: 1px;
+.detail {
+  > * {
+    width: 85%;
+    margin: 0 auto;
+    padding-top: 15%;
+    text-aligen: center;
   }
 }
-======== */
+/**
+ * Stylesheet
+ *
+ * @class layout
+ */
+
+body {
+  /* ================================================================
+      ASIDE/SECTION
+     ================================================================ */
+  > aside,
+  > section {
+    .display-box();
+    .box-orient(vertical);
+    height: inherit;
+
+    > header,
+    > footer {
+      .box-flex(0);
+      z-index: 3;
+      position: relative;
+    }
+
+    > header {
+      .ordinal-group(1);
+    }
+
+    > article {
+      .box-flex(1);
+      .ordinal-group(2);
+    }
+
+    > footer {
+      .ordinal-group(3);
+    }
+
+    /* ================ HEADER/FOOTER ================ */
+    > header,
+    > footer {
+      height: @HEADER_HEIGHT;
+      line-height: @HEADER_HEIGHT;
+
+      > nav {
+        .box-flex(0);
+      }
+    }
+
+    /* ================ ARTICLE ================ */
+    > article {
+      visibility: hidden;
+      display: none;
+    }
+    &.show > article.active,
+    &.hide > article.active
+    &.hiding > article.active {
+      visibility: visible;
+      display: block;
+      z-index: 1;
+      height: inherit;
+    }
+  }
+
+  /* ================================================================
+      SECTION
+     ================================================================ */
+  > section {
+    width: inherit;
+    z-index: -1;
+    &.show {
+      z-index: 1;
+    }
+  }
+
+  /* ================================================================
+      ASIDE (todo next)
+     ================================================================ */
+  > aside {
+    width: @ASIDE_WIDTH;
+    display: none;
+    z-index: -1;
+
+    > header {
+
+    }
+
+    &.active,
+    &.show {
+      .display-box();
+    }
+    &.show {
+      z-index: 0;
+    }
+    &.right {
+      right: 0;
+    }
+  }
+
+  /* ================================================================
+      EXCLUDE OS
+     ================================================================ */
+
+  [data-os=ios] {
+    [data-os=android],
+    [data-os=blackerry],
+    [data-os=firefoxos] {
+      display: none;
+    }
+  }
+
+  [data-os=android] {
+    [data-os=ios],
+    [data-os=blackerry],
+    [data-os=firefoxos] {
+      display: none;
+    }
+  }
+  [data-os=blackberry] {
+    [data-os=android],
+    [data-os=ios],
+    [data-os=firefoxos] {
+      display: none;
+    }
+  }
+  [data-os=firefoxos] {
+    [data-os=android],
+    [data-os=ios],
+    [data-os=blackberry] {
+      display: none;
+    }
+  }
+}
+/**
+ * Stylesheet
+ *
+ * @class layout.list
+ */
+
+.list {
+  li {
+    list-style-type: none;
+    position: relative;
+    line-height: inherit;
+
+    &.thumb {
+      .display-box();
+      .box-orient(horizontal);
+
+      > div {
+        .box-flex(1);
+      }
+    }
+
+    &:not(.big) {
+      padding: .8em;
+    }
+    &.big {
+      padding: 1em;
+    }
+
+    &.arrow:after {
+      content: '';
+      border-top: 1em solid;
+      border-right: 1em solid;
+      .vendor(transform, rotate(45deg));
+    }
+
+    &.anchor {
+      padding: 0.25em;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    small {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      display: block;
+    }
+
+    small {
+      font-size: 0.9em;
+    }
+  }
+}
+
+/* ==== Any phone ==== */
+@media only screen and (max-width: 767px) {
+  body {
+    &[data-position="absolute"] > section {
+      position: absolute;
+    }
+
+    &[data-position="fixed"] > section {
+      position: fixed;
+    }
+
+    > aside {
+      z-index: 0;
+      position: absolute;
+    }
+  }
+}
+
+/* ==== Tablet ==== */
+@media only screen and (min-width: 768px) {
+  body {
+    .display-box();
+    .box-orient(horizontal);
+    overflow: hidden;
+
+    > aside {
+      position: absolute;
+      z-index: 0;
+      left: 0;
+      top: 0;
+      visibility: hidden;
+      &.show {
+        visibility: visible;
+      }
+    }
+  }
+}
+/* logo */
+@LOGO_IMAGE              : "../images/logo.png";
+@LOGO_WIDTH              : 101px;
+@LOGO_HEIGHT             : 24px;
+@LOGO_LARGE_IMAGE        : "../images/logo-big.png";
+@LOGO_LARGE_WIDTH        : 120px;
+@LOGO_LARGE_HEIGHT       : 80px;
+
+/* color */
+@FONT_COLOR              : #03919f;
+@ERROR_COLOR             : #d70000;
+@INTUT_BACKGROUND_COLOR  : #fff;
+@INTUT_BORDER_COLOR      : #d2d6d8;
+@INTUT_BORDER_COLOR_FOCUS: #03919f;
+@BUTTON_COLOR            : #03919f;
+@BUTTON_BACKGROUND_COLOR : #fff;
+@BUTTON_BORDER_COLOR     : #ccc;
+@SUBMIT_COLOR            : #fff;
+@SUBMIT_BACKGROUND_COLOR : #03919f;
+@SUBMIT_BORDER_COLOR     : #006e79;
+
+/* border */
+@BORDER_WIDTH            : 1px;
+@BORDER_STYLE            : solid;
+@BORDER_COLOR            : #d2d6d8;
+@BORDER_RADIUS           : 4px;
+
+/* list border */
+@LIST_BORDER_COLOR       : #e1e2e3;
+@LIST_BACKGROUND_COLOR   : #fff;
+@LIST_ANCHOR_BORDER_COLOR: #edead3;
+@LIST_ANCHOR_BACKGROUND_COLOR: #faf8e5;
+@LIST_SMALL_COLOR        : #afafaf;
+
+
+.logo {
+  width: @LOGO_WIDTH;
+  height: @LOGO_HEIGHT;
+  background-image: url(@LOGO_IMAGE);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.logo-large {
+  width: @LOGO_LARGE_WIDTH;
+  height: @LOGO_LARGE_HEIGHT;
+  background-image: url(@LOGO_LARGE_IMAGE);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.error.text {
+  color: @ERROR_COLOR;
+}
+.error.border {
+  border-color: @ERROR_COLOR;
+}
+
+.border {
+  border-width: @BORDER_WIDTH;
+  border-style: @BORDER_STYLE;
+  border-color: @BORDER_COLOR;
+}
+
+.border-top {
+  border-top-width: @BORDER_WIDTH;
+  border-top-style: @BORDER_STYLE;
+  border-top-color: @BORDER_COLOR;
+}
+.border-left {
+  border-left-width: @BORDER_WIDTH;
+  border-left-style: @BORDER_STYLE;
+  border-left-color: @BORDER_COLOR;
+}
+.border-right {
+  border-right-width: @BORDER_WIDTH;
+  border-right-style: @BORDER_STYLE;
+  border-right-color: @BORDER_COLOR;
+}
+.border-bottom {
+  border-bottom-width: @BORDER_WIDTH;
+  border-bottom-style: @BORDER_STYLE;
+  border-bottom-color: @BORDER_COLOR;
+}
+
+.border-radius {
+  .border-radius(@BORDER_RADIUS);
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="url"],
+input[type="number"],
+input[type="range"],
+input[type="date"],
+input[type="seach"] {
+  border-color: @INTUT_BORDER_COLOR;
+  background-color: @INTUT_BACKGROUND_COLOR;
+}
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="number"]:focus,
+input[type="range"]:focus,
+input[type="date"]:focus,
+input[type="seach"]:focus {
+  border-color: @INTUT_BORDER_COLOR_FOCUS;
+}
+
+.font-color {
+  color: @FONT_COLOR;
+}
+
+.button,
+button {
+  border-color: @BUTTON_BORDER_COLOR;
+  color: @BUTTON_COLOR;
+  background-color: @BUTTON_BACKGROUND_COLOR;
+}
+.button.submit,
+button.submit {
+  border-color: @SUBMIT_BORDER_COLOR;
+  color: @SUBMIT_COLOR;
+  background-color: @SUBMIT_BACKGROUND_COLOR;
+
+  &:active {
+    background-color: @SUBMIT_BORDER_COLOR;
+  }
+}
+
+.list {
+  li {
+    &.thumb {
+      background-color: @LIST_BACKGROUND_COLOR;
+
+      &.border,
+      &.border-top,
+      &.border-bottom,
+      &.border-left,
+      &.border-right {
+        border-color: @LIST_BORDER_COLOR;
+      }
+    }
+
+    &.anchor {
+      background-color: @LIST_ANCHOR_BACKGROUND_COLOR;
+
+      &.border,
+      &.border-top,
+      &.border-bottom,
+      &.border-left,
+      &.border-right {
+        border-color: @LIST_ANCHOR_BORDER_COLOR;
+      }
+    }
+
+    small {
+      color: @LIST_SMALL_COLOR;
+    }
+  }
+}
+
+.detail {
+  small {
+    color: @LIST_SMALL_COLOR;
+  }
+}
+/**
+ * Stylesheet
+ *
+ * @class widget
+ *
+ */
+
+/* =============== CLASSES =============== */
+.hidden {
+  display: none;
+}
+.block {
+  display: block;
+}
+.inline {
+  display: inline;
+}
+.inline-block {
+  display: inline-block;
+}
+.on-left {
+  float: left;
+}
+.on-right {
+  float: right;
+}
+
+/* =============== Scroll ================ */
+.scroll {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* =============== Form =============== */
+form,
+.form{
+  input:not([type="checkbox"]),
+  textarea,
+  select,
+  .progress,
+  label.select{
+    font-size: 1em;
+    &.large {
+      font-size: 1.5em;
+    }
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="date"],
+  input[type="datetime"],
+  input[type="email"],
+  input[type="number"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="time"],
+  input[type="url"],
+  select,
+  textarea,
+  label.select {
+    display: inline-block;
+    width: 100%;
+    padding: 0 0.5em;
+    .transition(all 100ms linear);
+    font-family: inherit;
+    -webkit-appearance: none;
+    -webkit-user-select: text;
+    &:not(.border) {
+      border: 0;
+    }
+    &:focus {
+      outline: none !important;
+    }
+    &.border {
+      &,
+      > select {
+        padding: 0.3em 0.4em;
+      }
+    }
+  }
+}
+
+/* =============== Button =============== */
+.button,
+button {
+  display: inline-block;
+  line-height: 2.5em;
+
+  &.small {
+    line-height: 2.25em;
+  }
+  &.tiny {
+    line-height: 2.0em;
+  }
+  &.anchor {
+    width: 100%;
+  }
+}
+/**
+ * Stylesheet
+ *
+ * @class widget.notification
+ *
+ */
+
+.notification {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1980;
+  display: none;
+  background-color: rgba(0,0,0,0.5);
+
+  &.show {
+    .display-box();
+    .box-align(center);
+    .box-pack(center);
+  }
+
+  .window {
+    position: relative;
+    opacity: 0;
+    text-align: center;
+
+    &.show {
+      opacity: 1;
+    }
+
+    &.html {
+      width: 100%;
+      background: #fff;
+    }
+  }
+
+  &.align-top {
+    .box-align(start);
+  }
+
+  &.align-bottom {
+    .box-align(end);
+  }
+}

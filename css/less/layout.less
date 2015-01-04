@@ -1,0 +1,131 @@
+/**
+ * Stylesheet
+ *
+ * @class layout
+ */
+
+body {
+  /* ================================================================
+      ASIDE/SECTION
+     ================================================================ */
+  > aside,
+  > section {
+    .display-box();
+    .box-orient(vertical);
+    height: inherit;
+
+    > header,
+    > footer {
+      .box-flex(0);
+      z-index: 3;
+      position: relative;
+    }
+
+    > header {
+      .ordinal-group(1);
+    }
+
+    > article {
+      .box-flex(1);
+      .ordinal-group(2);
+    }
+
+    > footer {
+      .ordinal-group(3);
+    }
+
+    /* ================ HEADER/FOOTER ================ */
+    > header,
+    > footer {
+      height: @HEADER_HEIGHT;
+      line-height: @HEADER_HEIGHT;
+
+      > nav {
+        .box-flex(0);
+      }
+    }
+
+    /* ================ ARTICLE ================ */
+    > article {
+      visibility: hidden;
+      display: none;
+    }
+    &.show > article.active,
+    &.hide > article.active
+    &.hiding > article.active {
+      visibility: visible;
+      display: block;
+      z-index: 1;
+      height: inherit;
+    }
+  }
+
+  /* ================================================================
+      SECTION
+     ================================================================ */
+  > section {
+    width: inherit;
+    z-index: -1;
+    &.show {
+      z-index: 1;
+    }
+  }
+
+  /* ================================================================
+      ASIDE (todo next)
+     ================================================================ */
+  > aside {
+    width: @ASIDE_WIDTH;
+    display: none;
+    z-index: -1;
+
+    > header {
+
+    }
+
+    &.active,
+    &.show {
+      .display-box();
+    }
+    &.show {
+      z-index: 0;
+    }
+    &.right {
+      right: 0;
+    }
+  }
+
+  /* ================================================================
+      EXCLUDE OS
+     ================================================================ */
+
+  [data-os=ios] {
+    [data-os=android],
+    [data-os=blackerry],
+    [data-os=firefoxos] {
+      display: none;
+    }
+  }
+
+  [data-os=android] {
+    [data-os=ios],
+    [data-os=blackerry],
+    [data-os=firefoxos] {
+      display: none;
+    }
+  }
+  [data-os=blackberry] {
+    [data-os=android],
+    [data-os=ios],
+    [data-os=firefoxos] {
+      display: none;
+    }
+  }
+  [data-os=firefoxos] {
+    [data-os=android],
+    [data-os=ios],
+    [data-os=blackberry] {
+      display: none;
+    }
+  }
+}
