@@ -1,0 +1,99 @@
+/**
+ * Stylesheet
+ *
+ * @class widget
+ *
+ */
+
+/* =============== CLASSES =============== */
+.hidden {
+  display: none;
+}
+.block {
+  display: block;
+}
+.inline {
+  display: inline;
+}
+.inline-block {
+  display: inline-block;
+}
+.on-left {
+  float: left;
+}
+.on-right {
+  float: right;
+}
+
+/* =============== Scroll ================ */
+.scroll {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* =============== Form =============== */
+form,
+.form{
+  input:not([type="checkbox"]),
+  textarea,
+  select,
+  .progress,
+  label.select{
+    font-size: 1em;
+    &.large {
+      font-size: 1.5em;
+    }
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="date"],
+  input[type="datetime"],
+  input[type="email"],
+  input[type="number"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="time"],
+  input[type="url"],
+  select,
+  textarea,
+  label.select {
+    display: inline-block;
+    width: 100%;
+    padding: 0 0.5em;
+    .transition(all 100ms linear);
+    font-family: inherit;
+    -webkit-appearance: none;
+    -webkit-user-select: text;
+    &:not(.border) {
+      border: 0;
+    }
+    &:focus {
+      outline: none !important;
+    }
+    &.border {
+      &,
+      > select {
+        padding: 0.3em 0.4em;
+      }
+    }
+  }
+}
+
+/* =============== Button =============== */
+.button,
+button {
+  display: inline-block;
+  line-height: 2.5em;
+
+  &.small {
+    line-height: 2.25em;
+  }
+  &.tiny {
+    line-height: 2.0em;
+  }
+  &.anchor {
+    width: 100%;
+  }
+}
