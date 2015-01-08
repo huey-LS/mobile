@@ -428,20 +428,25 @@ body [data-os=firefoxos] [data-os=blackberry] {
     visibility: visible;
   }
 }
+/**
+ * Stylesheet
+ *
+ * @class theme
+ */
 /* logo */
 /* color */
 /* border */
 /* list border */
 .logo {
-  width: 101px;
-  height: 24px;
+  width: 97px;
+  height: 29px;
   background-image: url("../images/logo.png");
   background-repeat: no-repeat;
   background-size: 100%;
 }
 .logo-large {
-  width: 120px;
-  height: 80px;
+  width: 168px;
+  height: 50px;
   background-image: url("../images/logo-big.png");
   background-repeat: no-repeat;
   background-size: 100%;
@@ -503,26 +508,26 @@ input[type="number"]:focus,
 input[type="range"]:focus,
 input[type="date"]:focus,
 input[type="seach"]:focus {
-  border-color: #03919f;
+  border-color: #079cda;
 }
 .font-color {
-  color: #03919f;
+  color: #079cda;
 }
 .button,
 button {
   border-color: #cccccc;
-  color: #03919f;
+  color: #079cda;
   background-color: #ffffff;
 }
 .button.submit,
 button.submit {
-  border-color: #006e79;
+  border-color: #0589c0;
   color: #ffffff;
-  background-color: #03919f;
+  background-color: #079cda;
 }
 .button.submit:active,
 button.submit:active {
-  background-color: #006e79;
+  background-color: #0589c0;
 }
 .list li.thumb {
   background-color: #ffffff;
@@ -545,10 +550,10 @@ button.submit:active {
   border-color: #edead3;
 }
 .list li small {
-  color: #afafaf;
+  color: #b5b5b5;
 }
 .detail small {
-  color: #afafaf;
+  color: #b5b5b5;
 }
 /**
  * Stylesheet
