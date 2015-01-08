@@ -168,7 +168,7 @@ caption {
   width: 85%;
   margin: 0 auto;
   padding-top: 15%;
-  text-aligen: center;
+  text-align: center;
 }
 /**
  * Stylesheet
@@ -433,11 +433,20 @@ body [data-os=firefoxos] [data-os=blackberry] {
  *
  * @class theme
  */
-/* logo */
+/* font */
 /* color */
+/* logo */
+/* app-icon */
+/* text */
+/* form */
 /* border */
-/* list border */
+/* list */
+html {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  color: #707070;
+}
 .logo {
+  display: inline-block;
   width: 97px;
   height: 29px;
   background-image: url("../images/logo.png");
@@ -445,49 +454,37 @@ body [data-os=firefoxos] [data-os=blackberry] {
   background-size: 100%;
 }
 .logo-large {
+  display: inline-block;
   width: 168px;
   height: 50px;
   background-image: url("../images/logo-big.png");
   background-repeat: no-repeat;
   background-size: 100%;
 }
-.error.text {
-  color: #d70000;
+.app-icon {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background-image: url("../images/app-icon.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
-.error.border {
-  border-color: #d70000;
+.app-icon.icon-iphone {
+  background-position: 0 0;
+}
+.app-icon.icon-android {
+  background-position: 0 -22px;
+}
+.app-icon.icon-download {
+  background-position: 0 -44px;
+}
+.text {
+  color: #707070;
 }
 .border {
   border-width: 1px;
   border-style: solid;
-  border-color: #d2d6d8;
-}
-.border-top {
-  border-top-width: 1px;
-  border-top-style: solid;
-  border-top-color: #d2d6d8;
-}
-.border-left {
-  border-left-width: 1px;
-  border-left-style: solid;
-  border-left-color: #d2d6d8;
-}
-.border-right {
-  border-right-width: 1px;
-  border-right-style: solid;
-  border-right-color: #d2d6d8;
-}
-.border-bottom {
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-bottom-color: #d2d6d8;
-}
-.border-radius {
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
+  border-color: #d3d3d3;
 }
 input[type="text"],
 input[type="password"],
@@ -497,7 +494,7 @@ input[type="number"],
 input[type="range"],
 input[type="date"],
 input[type="seach"] {
-  border-color: #d2d6d8;
+  border-color: #d3d3d3;
   background-color: #ffffff;
 }
 input[type="text"]:focus,
@@ -510,24 +507,35 @@ input[type="date"]:focus,
 input[type="seach"]:focus {
   border-color: #079cda;
 }
-.font-color {
-  color: #079cda;
-}
 .button,
 button {
-  border-color: #cccccc;
+  border-color: #d3d3d3;
   color: #079cda;
   background-color: #ffffff;
 }
-.button.submit,
-button.submit {
+.button-primary {
   border-color: #0589c0;
   color: #ffffff;
   background-color: #079cda;
 }
-.button.submit:active,
-button.submit:active {
+.button-primary:active {
   background-color: #0589c0;
+}
+.button-ios {
+  border-color: #0589c0;
+  color: #ffffff;
+  background-color: #079cda;
+}
+.button-ios:active {
+  background-color: #0589c0;
+}
+.button-android {
+  border-color: #53ad13;
+  color: #ffffff;
+  background-color: #53c22d;
+}
+.button-android:active {
+  background-color: #53ad13;
 }
 .list li.thumb {
   background-color: #ffffff;
@@ -549,11 +557,62 @@ button.submit:active {
 .list li.anchor.border-right {
   border-color: #edead3;
 }
-.list li small {
-  color: #b5b5b5;
+.text-normal {
+  color: #707070;
 }
-.detail small {
-  color: #b5b5b5;
+strong,
+.textr-strong {
+  color: #404040;
+}
+small,
+.text-small {
+  color: #afafaf;
+}
+a,
+.text-primary {
+  color: #079cda;
+}
+.error,
+.error.text,
+.text-error {
+  color: #d70000;
+}
+.border-top {
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: #d3d3d3;
+}
+.border-left {
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-left-color: #d3d3d3;
+}
+.border-right {
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: #d3d3d3;
+}
+.border-bottom {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #d3d3d3;
+}
+.border-normal {
+  border-color: #d3d3d3;
+}
+.border-primary {
+  border-color: #079cda;
+}
+.border-error,
+.error.border {
+  border-color: #d70000;
+}
+.border-radius {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
 }
 /**
  * Stylesheet

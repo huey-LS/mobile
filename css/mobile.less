@@ -208,7 +208,7 @@ th, td, caption {
     width: 85%;
     margin: 0 auto;
     padding-top: 15%;
-    text-aligen: center;
+    text-align: center;
   }
 }
 /**
@@ -444,43 +444,78 @@ body {
  * @class theme
  */
 
-
-/* logo */
-@LOGO_IMAGE              : "../images/logo.png";
-@LOGO_WIDTH              : 97px;
-@LOGO_HEIGHT             : 29px;
-@LOGO_LARGE_IMAGE        : "../images/logo-big.png";
-@LOGO_LARGE_WIDTH        : 168px;
-@LOGO_LARGE_HEIGHT       : 50px;
+/* font */
+@FONT_FAMILY: Helvetica Neue, Helvetica, Arial, sans-serif;
 
 /* color */
-@FONT_COLOR              : #079cda;
-@ERROR_COLOR             : #d70000;
-@INTUT_BACKGROUND_COLOR  : #fff;
-@INTUT_BORDER_COLOR      : #d2d6d8;
-@INTUT_BORDER_COLOR_FOCUS: #079cda;
-@BUTTON_COLOR            : #079cda;
-@BUTTON_BACKGROUND_COLOR : #fff;
-@BUTTON_BORDER_COLOR     : #ccc;
-@SUBMIT_COLOR            : #fff;
-@SUBMIT_BACKGROUND_COLOR : #079cda;
-@SUBMIT_BORDER_COLOR     : #0589c0;
+@COLOR_PRIMARY                   : #079cda;
+@COLOR_PRIMARY_DARK              : #0589c0;
+@COLOR_ERROR                     : #d70000;
+@COLOR_BORDER                    : #d3d3d3;
+@COLOR_ANDROID                   : #53c22d;
+@COLOR_ANDROID_DARK              : #53ad13;
+@COLOR_WHITE                     : #fff;
+@COLOR_BLACK                     : #000;
+
+/* logo */
+@LOGO_IMAGE                      : "../images/logo.png";
+@LOGO_WIDTH                      : 97px;
+@LOGO_HEIGHT                     : 29px;
+@LOGO_LARGE_IMAGE                : "../images/logo-big.png";
+@LOGO_LARGE_WIDTH                : 168px;
+@LOGO_LARGE_HEIGHT               : 50px;
+
+/* app-icon */
+@APP_IMAGE                       : "../images/app-icon.png";
+@APP_WIDTH                       : 22px;
+@APP_HEIGHT                      : 22px;
+
+/* text */
+@TEXT_COLOR                      : #707070;
+@TEXT_COLOR_PRIMARY              : @COLOR_PRIMARY;
+@TEXT_COLOR_STRONG               : #404040;
+@TEXT_COLOR_SMALL                : #afafaf;
+@TEXT_COLOR_ERROR                : @COLOR_ERROR;
+
+/* form */
+@INTUT_BACKGROUND_COLOR          : @COLOR_WHITE;
+@INTUT_BORDER_COLOR              : @COLOR_BORDER;
+@INTUT_BORDER_COLOR_FOCUS        : @COLOR_PRIMARY;
+@BUTTON_COLOR                    : @COLOR_PRIMARY;
+@BUTTON_BACKGROUND_COLOR         : @COLOR_WHITE;
+@BUTTON_BORDER_COLOR             : @COLOR_BORDER;
+@BUTTOM_PRIMARY_COLOR            : @COLOR_WHITE;
+@BUTTOM_PRIMARY_BACKGROUND_COLOR : @COLOR_PRIMARY;
+@BUTTOM_PRIMARY_BORDER_COLOR     : @COLOR_PRIMARY_DARK;
+@BUTTOM_IOS_COLOR                : @BUTTOM_PRIMARY_COLOR;
+@BUTTOM_IOS_BACKGROUND_COLOR     : @BUTTOM_PRIMARY_BACKGROUND_COLOR;
+@BUTTOM_IOS_BORDER_COLOR         : @BUTTOM_PRIMARY_BORDER_COLOR;
+@BUTTOM_ANDROID_COLOR            : @COLOR_WHITE;
+@BUTTOM_ANDROID_BACKGROUND_COLOR : @COLOR_ANDROID;
+@BUTTOM_ANDROID_BORDER_COLOR     : @COLOR_ANDROID_DARK;
+
 
 /* border */
-@BORDER_WIDTH            : 1px;
-@BORDER_STYLE            : solid;
-@BORDER_COLOR            : #d2d6d8;
-@BORDER_RADIUS           : 4px;
+@BORDER_WIDTH                    : 1px;
+@BORDER_STYLE                    : solid;
+@BORDER_COLOR                    : @COLOR_BORDER;
+@BORDER_RADIUS                   : 4px;
+@BORDER_COLOR_PRIMARY            : @COLOR_PRIMARY;
+@BORDER_COLOR_ERROR              : @COLOR_ERROR;
 
-/* list border */
-@LIST_BORDER_COLOR       : #e1e2e3;
-@LIST_BACKGROUND_COLOR   : #fff;
-@LIST_ANCHOR_BORDER_COLOR: #edead3;
-@LIST_ANCHOR_BACKGROUND_COLOR: #faf8e5;
-@LIST_SMALL_COLOR        : #b5b5b5;
+/* list */
+@LIST_BORDER_COLOR               : #e1e2e3;
+@LIST_BACKGROUND_COLOR           : @COLOR_WHITE;
+@LIST_ANCHOR_BORDER_COLOR        : #edead3;
+@LIST_ANCHOR_BACKGROUND_COLOR    : #faf8e5;
 
+html {
+  font-family: @FONT_FAMILY;
+  color: @TEXT_COLOR;
+}
 
 .logo {
+  display: inline-block;
   width: @LOGO_WIDTH;
   height: @LOGO_HEIGHT;
   background-image: url(@LOGO_IMAGE);
@@ -489,6 +524,7 @@ body {
 }
 
 .logo-large {
+  display: inline-block;
   width: @LOGO_LARGE_WIDTH;
   height: @LOGO_LARGE_HEIGHT;
   background-image: url(@LOGO_LARGE_IMAGE);
@@ -496,43 +532,33 @@ body {
   background-size: 100%;
 }
 
-.error.text {
-  color: @ERROR_COLOR;
+.app-icon {
+  display: inline-block;
+  width: @APP_WIDTH;
+  height: @APP_HEIGHT;
+  background-image: url(@APP_IMAGE);
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
-.error.border {
-  border-color: @ERROR_COLOR;
+.app-icon.icon-iphone {
+    background-position: 0 0;
+}
+.app-icon.icon-android {
+    background-position: 0 -@APP_HEIGHT;
+}
+.app-icon.icon-download {
+    background-position: 0 -@APP_HEIGHT*2;
 }
 
+.text {
+  color: @TEXT_COLOR;
+}
 .border {
   border-width: @BORDER_WIDTH;
   border-style: @BORDER_STYLE;
   border-color: @BORDER_COLOR;
 }
 
-.border-top {
-  border-top-width: @BORDER_WIDTH;
-  border-top-style: @BORDER_STYLE;
-  border-top-color: @BORDER_COLOR;
-}
-.border-left {
-  border-left-width: @BORDER_WIDTH;
-  border-left-style: @BORDER_STYLE;
-  border-left-color: @BORDER_COLOR;
-}
-.border-right {
-  border-right-width: @BORDER_WIDTH;
-  border-right-style: @BORDER_STYLE;
-  border-right-color: @BORDER_COLOR;
-}
-.border-bottom {
-  border-bottom-width: @BORDER_WIDTH;
-  border-bottom-style: @BORDER_STYLE;
-  border-bottom-color: @BORDER_COLOR;
-}
-
-.border-radius {
-  .border-radius(@BORDER_RADIUS);
-}
 
 input[type="text"],
 input[type="password"],
@@ -556,26 +582,40 @@ input[type="seach"]:focus {
   border-color: @INTUT_BORDER_COLOR_FOCUS;
 }
 
-.font-color {
-  color: @FONT_COLOR;
-}
-
 .button,
 button {
   border-color: @BUTTON_BORDER_COLOR;
   color: @BUTTON_COLOR;
   background-color: @BUTTON_BACKGROUND_COLOR;
 }
-.button.submit,
-button.submit {
-  border-color: @SUBMIT_BORDER_COLOR;
-  color: @SUBMIT_COLOR;
-  background-color: @SUBMIT_BACKGROUND_COLOR;
+.button-primary {
+  border-color: @BUTTOM_PRIMARY_BORDER_COLOR;
+  color: @BUTTOM_PRIMARY_COLOR;
+  background-color: @BUTTOM_PRIMARY_BACKGROUND_COLOR;
 
   &:active {
-    background-color: @SUBMIT_BORDER_COLOR;
+    background-color: @BUTTOM_PRIMARY_BORDER_COLOR;
   }
 }
+.button-ios {
+  border-color: @BUTTOM_IOS_BORDER_COLOR;
+  color: @BUTTOM_IOS_COLOR;
+  background-color: @BUTTOM_IOS_BACKGROUND_COLOR;
+
+  &:active {
+    background-color: @BUTTOM_IOS_BORDER_COLOR;
+  }
+}
+.button-android {
+  border-color: @BUTTOM_ANDROID_BORDER_COLOR;
+  color: @BUTTOM_ANDROID_COLOR;
+  background-color: @BUTTOM_ANDROID_BACKGROUND_COLOR;
+
+  &:active {
+    background-color: @BUTTOM_ANDROID_BORDER_COLOR;
+  }
+}
+
 
 .list {
   li {
@@ -602,17 +642,67 @@ button.submit {
         border-color: @LIST_ANCHOR_BORDER_COLOR;
       }
     }
-
-    small {
-      color: @LIST_SMALL_COLOR;
-    }
   }
 }
 
-.detail {
-  small {
-    color: @LIST_SMALL_COLOR;
-  }
+
+
+.text-normal {
+  color: @TEXT_COLOR;
+}
+strong,
+.textr-strong {
+  color: @TEXT_COLOR_STRONG;
+}
+small,
+.text-small {
+  color: @TEXT_COLOR_SMALL;
+}
+a,
+.text-primary {
+  color: @TEXT_COLOR_PRIMARY;
+}
+
+.error,
+.error.text,
+.text-error {
+  color: @TEXT_COLOR_ERROR;
+}
+
+
+.border-top {
+  border-top-width: @BORDER_WIDTH;
+  border-top-style: @BORDER_STYLE;
+  border-top-color: @BORDER_COLOR;
+}
+.border-left {
+  border-left-width: @BORDER_WIDTH;
+  border-left-style: @BORDER_STYLE;
+  border-left-color: @BORDER_COLOR;
+}
+.border-right {
+  border-right-width: @BORDER_WIDTH;
+  border-right-style: @BORDER_STYLE;
+  border-right-color: @BORDER_COLOR;
+}
+.border-bottom {
+  border-bottom-width: @BORDER_WIDTH;
+  border-bottom-style: @BORDER_STYLE;
+  border-bottom-color: @BORDER_COLOR;
+}
+.border-normal{
+  border-color: @BORDER_COLOR;
+}
+.border-primary{
+  border-color: @BORDER_COLOR_PRIMARY;
+}
+.border-error,
+.error.border {
+  border-color: @BORDER_COLOR_ERROR;
+}
+
+.border-radius {
+  .border-radius(@BORDER_RADIUS);
 }
 /**
  * Stylesheet
