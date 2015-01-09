@@ -24,6 +24,10 @@
     .box-orient(horizontal);
     overflow: hidden;
 
+    > section:not(.show) {
+      display: none;
+    }
+
     > aside {
       position: absolute;
       z-index: 0;

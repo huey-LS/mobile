@@ -426,6 +426,10 @@ body {
     .box-orient(horizontal);
     overflow: hidden;
 
+    > section:not(.show) {
+      display: none;
+    }
+
     > aside {
       position: absolute;
       z-index: 0;
@@ -448,51 +452,73 @@ body {
 @FONT_FAMILY: Helvetica Neue, Helvetica, Arial, sans-serif;
 
 /* color */
-@COLOR_PRIMARY                   : #079cda;
-@COLOR_PRIMARY_DARK              : #0589c0;
-@COLOR_ERROR                     : #d70000;
-@COLOR_BORDER                    : #d3d3d3;
-@COLOR_ANDROID                   : #53c22d;
-@COLOR_ANDROID_DARK              : #53ad13;
-@COLOR_WHITE                     : #fff;
-@COLOR_BLACK                     : #000;
+@COLOR_PRIMARY                           : #079cda;
+@COLOR_PRIMARY_DARK                      : #0589c0;
+@COLOR_PRIMARY_ACTIVE                    : #75cdf2;
+@COLOR_PRIMARY_ACTIVE_DARK               : #3db2e2;
+@COLOR_CANCEL                            : #fff;
+@COLOR_CANCEL_DARK                       : #d9d9d9;
+@COLOR_CANCEL_ACTIVE                     : #e5e5e5;
+@COLOR_CANCEL_ACTIVE_DARK                : #bfbfbf;
+@COLOR_ERROR                             : #d70000;
+@COLOR_BORDER                            : #d3d3d3;
+@COLOR_ANDROID                           : #53c22d;
+@COLOR_ANDROID_ACTIVE                    : #aee29c;
+@COLOR_ANDROID_DARK                      : #53ad13;
+@COLOR_ANDROID_ACTIVE_DARK               : #82c96a;
+@COLOR_WHITE                             : #fff;
+@COLOR_WHITE_ACTIVE                      : #f7f7f7;
+@COLOR_BLACK                             : #000;
 
 /* logo */
-@LOGO_IMAGE                      : "../images/logo.png";
-@LOGO_WIDTH                      : 97px;
-@LOGO_HEIGHT                     : 29px;
-@LOGO_LARGE_IMAGE                : "../images/logo-big.png";
-@LOGO_LARGE_WIDTH                : 168px;
-@LOGO_LARGE_HEIGHT               : 50px;
+@LOGO_IMAGE                              : "../images/logo.png";
+@LOGO_WIDTH                              : 97px;
+@LOGO_HEIGHT                             : 29px;
+@LOGO_LARGE_IMAGE                        : "../images/logo-big.png";
+@LOGO_LARGE_WIDTH                        : 168px;
+@LOGO_LARGE_HEIGHT                       : 50px;
 
 /* app-icon */
-@APP_IMAGE                       : "../images/app-icon.png";
-@APP_WIDTH                       : 22px;
-@APP_HEIGHT                      : 22px;
+@APP_IMAGE                               : "../images/app-icon.png";
+@APP_WIDTH                               : 22px;
+@APP_HEIGHT                              : 22px;
 
 /* text */
-@TEXT_COLOR                      : #707070;
-@TEXT_COLOR_PRIMARY              : @COLOR_PRIMARY;
-@TEXT_COLOR_STRONG               : #404040;
-@TEXT_COLOR_SMALL                : #afafaf;
-@TEXT_COLOR_ERROR                : @COLOR_ERROR;
+@TEXT_COLOR                              : #707070;
+@TEXT_COLOR_PRIMARY                      : @COLOR_PRIMARY;
+@TEXT_COLOR_STRONG                       : #404040;
+@TEXT_COLOR_SMALL                        : #afafaf;
+@TEXT_COLOR_ERROR                        : @COLOR_ERROR;
 
 /* form */
-@INTUT_BACKGROUND_COLOR          : @COLOR_WHITE;
-@INTUT_BORDER_COLOR              : @COLOR_BORDER;
-@INTUT_BORDER_COLOR_FOCUS        : @COLOR_PRIMARY;
-@BUTTON_COLOR                    : @COLOR_PRIMARY;
-@BUTTON_BACKGROUND_COLOR         : @COLOR_WHITE;
-@BUTTON_BORDER_COLOR             : @COLOR_BORDER;
-@BUTTOM_PRIMARY_COLOR            : @COLOR_WHITE;
-@BUTTOM_PRIMARY_BACKGROUND_COLOR : @COLOR_PRIMARY;
-@BUTTOM_PRIMARY_BORDER_COLOR     : @COLOR_PRIMARY_DARK;
-@BUTTOM_IOS_COLOR                : @BUTTOM_PRIMARY_COLOR;
-@BUTTOM_IOS_BACKGROUND_COLOR     : @BUTTOM_PRIMARY_BACKGROUND_COLOR;
-@BUTTOM_IOS_BORDER_COLOR         : @BUTTOM_PRIMARY_BORDER_COLOR;
-@BUTTOM_ANDROID_COLOR            : @COLOR_WHITE;
-@BUTTOM_ANDROID_BACKGROUND_COLOR : @COLOR_ANDROID;
-@BUTTOM_ANDROID_BORDER_COLOR     : @COLOR_ANDROID_DARK;
+@INTUT_BACKGROUND_COLOR                  : @COLOR_WHITE;
+@INTUT_BORDER_COLOR                      : @COLOR_BORDER;
+@INTUT_BORDER_COLOR_FOCUS                : @COLOR_PRIMARY;
+@BUTTON_COLOR                            : @COLOR_PRIMARY;
+@BUTTON_BACKGROUND_COLOR                 : @COLOR_WHITE;
+@BUTTON_BACKGROUND_COLOR_ACTIVE          : @COLOR_WHITE;
+@BUTTON_BORDER_COLOR                     : @COLOR_BORDER;
+@BUTTON_BORDER_COLOR_ACTIVE              : @COLOR_PRIMARY;
+@BUTTON_PRIMARY_COLOR                    : @COLOR_WHITE;
+@BUTTON_PRIMARY_BACKGROUND_COLOR         : @COLOR_PRIMARY;
+@BUTTON_PRIMARY_BACKGROUND_COLOR_ACTIVE  : @COLOR_PRIMARY_ACTIVE;
+@BUTTON_PRIMARY_BORDER_COLOR             : @COLOR_PRIMARY_DARK;
+@BUTTON_PRIMARY_BORDER_COLOR_ACTIVE      : @COLOR_PRIMARY_ACTIVE_DARK;
+@BUTTON_CANCEL_COLOR                     : @TEXT_COLOR_STRONG;
+@BUTTON_CANCEL_BACKGROUND_COLOR          : @COLOR_CANCEL;
+@BUTTON_CANCEL_BACKGROUND_COLOR_ACTIVE   : @COLOR_CANCEL_ACTIVE;
+@BUTTON_CANCEL_BORDER_COLOR              : @COLOR_CANCEL_DARK;
+@BUTTON_CANCEL_BORDER_COLOR_ACTIVE       : @COLOR_CANCEL_ACTIVE_DARK;
+@BUTTON_IOS_COLOR                        : @BUTTON_PRIMARY_COLOR;
+@BUTTON_IOS_BACKGROUND_COLOR             : @BUTTON_PRIMARY_BACKGROUND_COLOR;
+@BUTTON_IOS_BACKGROUND_COLOR_ACTIVE      : @BUTTON_PRIMARY_BACKGROUND_COLOR_ACTIVE;
+@BUTTON_IOS_BORDER_COLOR                 : @BUTTON_PRIMARY_BORDER_COLOR;
+@BUTTON_IOS_BORDER_COLOR_ACTIVE          : @BUTTON_PRIMARY_BORDER_COLOR_ACTIVE;
+@BUTTON_ANDROID_COLOR                    : @COLOR_WHITE;
+@BUTTON_ANDROID_BACKGROUND_COLOR         : @COLOR_ANDROID;
+@BUTTON_ANDROID_BACKGROUND_COLOR_ACTIVE  : @COLOR_ANDROID_ACTIVE;
+@BUTTON_ANDROID_BORDER_COLOR             : @COLOR_ANDROID_DARK;
+@BUTTON_ANDROID_BORDER_COLOR_ACTIVE      : @COLOR_ANDROID_ACTIVE_DARK;
 
 
 /* border */
@@ -506,6 +532,7 @@ body {
 /* list */
 @LIST_BORDER_COLOR               : #e1e2e3;
 @LIST_BACKGROUND_COLOR           : @COLOR_WHITE;
+@LIST_BACKGROUND_COLOR_ACTIVE    : @COLOR_WHITE_ACTIVE;
 @LIST_ANCHOR_BORDER_COLOR        : #edead3;
 @LIST_ANCHOR_BACKGROUND_COLOR    : #faf8e5;
 
@@ -587,32 +614,60 @@ button {
   border-color: @BUTTON_BORDER_COLOR;
   color: @BUTTON_COLOR;
   background-color: @BUTTON_BACKGROUND_COLOR;
+
+  &.active
+  &:hover,
+  &:active {
+    border-color: @BUTTON_BORDER_COLOR_ACTIVE;
+    background-color: @BUTTON_BACKGROUND_COLOR_ACTIVE;
+  }
 }
 .button-primary {
-  border-color: @BUTTOM_PRIMARY_BORDER_COLOR;
-  color: @BUTTOM_PRIMARY_COLOR;
-  background-color: @BUTTOM_PRIMARY_BACKGROUND_COLOR;
+  border-color: @BUTTON_PRIMARY_BORDER_COLOR;
+  color: @BUTTON_PRIMARY_COLOR;
+  background-color: @BUTTON_PRIMARY_BACKGROUND_COLOR;
 
+  &.active
+  &:hover,
   &:active {
-    background-color: @BUTTOM_PRIMARY_BORDER_COLOR;
+    border-color: @BUTTON_PRIMARY_BORDER_COLOR_ACTIVE;
+    background-color: @BUTTON_PRIMARY_BACKGROUND_COLOR_ACTIVE;
+  }
+}
+.button-cancel {
+  border-color: @BUTTON_CANCEL_BORDER_COLOR;
+  color: @BUTTON_CANCEL_COLOR;
+  background-color: @BUTTON_CANCEL_BACKGROUND_COLOR;
+
+  &.active
+  &:hover,
+  &:active {
+    border-color: @BUTTON_CANCEL_BORDER_COLOR_ACTIVE;
+    background-color: @BUTTON_CANCEL_BACKGROUND_COLOR_ACTIVE;
   }
 }
 .button-ios {
-  border-color: @BUTTOM_IOS_BORDER_COLOR;
-  color: @BUTTOM_IOS_COLOR;
-  background-color: @BUTTOM_IOS_BACKGROUND_COLOR;
+  border-color: @BUTTON_IOS_BORDER_COLOR;
+  color: @BUTTON_IOS_COLOR;
+  background-color: @BUTTON_IOS_BACKGROUND_COLOR;
 
+  &.active
+  &:hover,
   &:active {
-    background-color: @BUTTOM_IOS_BORDER_COLOR;
+    border-color: @BUTTON_IOS_BORDER_COLOR_ACTIVE;
+    background-color: @BUTTON_IOS_BACKGROUND_COLOR_ACTIVE;
   }
 }
 .button-android {
-  border-color: @BUTTOM_ANDROID_BORDER_COLOR;
-  color: @BUTTOM_ANDROID_COLOR;
-  background-color: @BUTTOM_ANDROID_BACKGROUND_COLOR;
+  border-color: @BUTTON_ANDROID_BORDER_COLOR;
+  color: @BUTTON_ANDROID_COLOR;
+  background-color: @BUTTON_ANDROID_BACKGROUND_COLOR;
 
+  &.active
+  &:hover,
   &:active {
-    background-color: @BUTTOM_ANDROID_BORDER_COLOR;
+    border-color: @BUTTON_ANDROID_BORDER_COLOR_ACTIVE;
+    background-color: @BUTTON_ANDROID_BACKGROUND_COLOR_ACTIVE;
   }
 }
 

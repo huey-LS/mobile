@@ -417,6 +417,9 @@ body [data-os=firefoxos] [data-os=blackberry] {
     box-orient: horizontal;
     overflow: hidden;
   }
+  body > section:not(.show) {
+    display: none;
+  }
   body > aside {
     position: absolute;
     z-index: 0;
@@ -513,29 +516,54 @@ button {
   color: #079cda;
   background-color: #ffffff;
 }
+.button.active .button:hover,
+.button.active button:hover,
+button.active .button:hover,
+button.active button:hover,
+.button:active,
+button:active {
+  border-color: #079cda;
+  background-color: #ffffff;
+}
 .button-primary {
   border-color: #0589c0;
   color: #ffffff;
   background-color: #079cda;
 }
+.button-primary.active .button-primary:hover,
 .button-primary:active {
-  background-color: #0589c0;
+  border-color: #3db2e2;
+  background-color: #75cdf2;
+}
+.button-cancel {
+  border-color: #d9d9d9;
+  color: #404040;
+  background-color: #ffffff;
+}
+.button-cancel.active .button-cancel:hover,
+.button-cancel:active {
+  border-color: #bfbfbf;
+  background-color: #e5e5e5;
 }
 .button-ios {
   border-color: #0589c0;
   color: #ffffff;
   background-color: #079cda;
 }
+.button-ios.active .button-ios:hover,
 .button-ios:active {
-  background-color: #0589c0;
+  border-color: #3db2e2;
+  background-color: #75cdf2;
 }
 .button-android {
   border-color: #53ad13;
   color: #ffffff;
   background-color: #53c22d;
 }
+.button-android.active .button-android:hover,
 .button-android:active {
-  background-color: #53ad13;
+  border-color: #82c96a;
+  background-color: #aee29c;
 }
 .list li.thumb {
   background-color: #ffffff;
