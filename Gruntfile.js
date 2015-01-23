@@ -3,9 +3,13 @@ module.exports = function(grunt){
     pkg: grunt.file.readJSON('package.json'),
     concat: {
       less: {
-        src : ['css/less/**/*.less'],
-        dest: 'css/mobile.less'
-      } 
+        src : ['css/less/*.less'],
+        dest: 'css/dist/mobile.less'
+      },
+      theme: {
+        src : ['css/less/__init.less', 'css/less/theme.less'],
+        dest: 'css/dist/theme.less'
+      }
     },
     less: {
       development: {
@@ -14,7 +18,8 @@ module.exports = function(grunt){
           yuicompress: false
         },
         files: {
-          'css/mobile.css': 'css/mobile.less'
+          'css/dist/mobile.css': 'css/dist/mobile.less',
+          'css/dist/theme.css': 'css/dist/theme.less'
         }
       },
       production: {
@@ -23,7 +28,8 @@ module.exports = function(grunt){
           yuicompress: true
         },
         files: {
-          'css/mobile.min.css': 'css/mobile.less'
+          'css/dist/mobile.min.css': 'css/dist/mobile.less',
+          'css/dist/theme.min.css': 'css/dist/theme.less'
         }
       }
     },
@@ -33,7 +39,7 @@ module.exports = function(grunt){
       },
       css: {
         files: [
-          'css/less/**/*.less'
+          'css/less/*.less'
         ],
         tasks: [
           'concat',
