@@ -441,6 +441,7 @@ body [data-os=firefoxos] [data-os=blackberry] {
 /* logo */
 /* app-icon */
 /* text */
+/* background */
 /* form */
 /* border */
 /* list */
@@ -604,6 +605,9 @@ a,
 .error.text,
 .text-error {
   color: #d70000;
+}
+.background-primary {
+  background-color: #079cda;
 }
 .border-top {
   border-top-width: 1px;
