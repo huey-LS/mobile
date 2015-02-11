@@ -3,7 +3,16 @@ module.exports = function(grunt){
     pkg: grunt.file.readJSON('package.json'),
     concat: {
       less: {
-        src : ['css/less/*.less'],
+        src : [
+          'css/less/__init.less',
+          'css/less/base.less',
+          'css/less/layout.less',
+          'css/less/layout.list.less',
+          'css/less/layout.detail.less',
+          'css/less/widget.less',
+          'css/less/widget.notification.less',
+          'css/less/media.less'
+        ],
         dest: 'css/dist/mobile.less'
       },
       theme: {
