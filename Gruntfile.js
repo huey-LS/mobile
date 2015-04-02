@@ -11,6 +11,7 @@ module.exports = function(grunt){
           'css/less/layout.detail.less',
           'css/less/widget.less',
           'css/less/widget.notification.less',
+          'css/less/widget.loading.less',
           'css/less/media.less'
         ],
         dest: 'css/dist/mobile.less'
