@@ -598,6 +598,11 @@ form label.select.border > select,
 button {
   display: inline-block;
   line-height: 2.5em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
 }
 .button.small,
 button.small {
