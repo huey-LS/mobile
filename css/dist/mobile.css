@@ -654,17 +654,49 @@ button.anchor {
   -o-box-pack: center;
   box-pack: center;
 }
+.notification.push {
+  height: auto;
+  background: none;
+}
+.notification.push.hide {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: -o-box;
+  display: box;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-box-align: center;
+  -o-box-align: center;
+  box-align: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-box-pack: center;
+  -o-box-pack: center;
+  box-pack: center;
+  -webkit-animation: notification_push_hide 400ms linear;
+  -webkit-animation-fill-mode: both;
+  -moz-animation: notification_push_hide 400ms linear;
+  -moz-animation-fill-mode: both;
+}
 .notification .window {
   position: relative;
-  opacity: 0;
+  display: none;
   text-align: center;
 }
 .notification .window.show {
-  opacity: 1;
+  display: block;
 }
 .notification .window.html {
   width: 100%;
   background: #fff;
+}
+.notification .window.push {
+  width: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 4px;
+  padding: 10px 15px;
+  color: #fff;
 }
 .notification.align-top {
   -webkit-box-align: start;
@@ -673,12 +705,45 @@ button.anchor {
   -o-box-align: start;
   box-align: start;
 }
+.notification.align-top.push {
+  margin-top: 60px;
+}
 .notification.align-bottom {
   -webkit-box-align: end;
   -moz-box-align: end;
   -ms-box-align: end;
   -o-box-align: end;
   box-align: end;
+}
+@-webkit-keyframes notification_push_hide {
+  0% {
+    opacity: 1;
+    margin-top: 60px;
+  }
+  90% {
+    opacity: 0;
+    margin-top: 40px;
+  }
+  100% {
+    display: none;
+    opacity: 0;
+    margin-top: 40px;
+  }
+}
+@-moz-keyframes notification_push_hide {
+  0% {
+    opacity: 1;
+    margin-top: 60px;
+  }
+  90% {
+    opacity: 0;
+    margin-top: 40px;
+  }
+  100% {
+    display: none;
+    opacity: 0;
+    margin-top: 40px;
+  }
 }
 /**
  * Stylesheet
@@ -813,7 +878,7 @@ section.show .loading,
 section.active .loading,
 .notification .loading {
   -webkit-animation: rotatingLoader 600ms infinite linear;
-  moz-animation: rotatingLoader 600ms infinite linear;
+  -moz-animation: rotatingLoader 600ms infinite linear;
 }
 @-webkit-keyframes rotatingLoader {
   0% {

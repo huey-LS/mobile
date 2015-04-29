@@ -523,28 +523,86 @@ button {
     .box-align(center);
     .box-pack(center);
   }
+  &.push {
+    height: auto;
+    background: none;
+
+    &.hide {
+      .display-box();
+      .box-align(center);
+      .box-pack(center);
+      -webkit-animation: notification_push_hide 400ms linear;
+      -webkit-animation-fill-mode: both;
+      -moz-animation:  notification_push_hide 400ms linear;
+      -moz-animation-fill-mode: both;
+    }
+  }
 
   .window {
     position: relative;
-    opacity: 0;
+    display: none;
     text-align: center;
 
     &.show {
-      opacity: 1;
+      display: block;
     }
 
     &.html {
       width: 100%;
       background: #fff;
     }
+
+    &.push {
+      width: auto;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 4px;
+      padding: 10px 15px;
+      color: #fff;
+    }
   }
 
   &.align-top {
     .box-align(start);
+
+    &.push {
+      margin-top: 60px;
+    }
   }
 
   &.align-bottom {
     .box-align(end);
+  }
+}
+
+@-webkit-keyframes notification_push_hide {
+  0% {
+    opacity: 1;
+    margin-top: 60px;
+  }
+  90% {
+    opacity: 0;
+    margin-top: 40px;
+  }
+  100% {
+    display: none;
+    opacity: 0;
+    margin-top: 40px;
+  }
+}
+
+@-moz-keyframes notification_push_hide {
+  0% {
+    opacity: 1;
+    margin-top: 60px;
+  }
+  90% {
+    opacity: 0;
+    margin-top: 40px;
+  }
+  100% {
+    display: none;
+    opacity: 0;
+    margin-top: 40px;
   }
 }
 /**
@@ -650,7 +708,7 @@ button {
 section.show, section.active, .notification {
   & .loading {
     -webkit-animation: rotatingLoader 600ms infinite linear;
-    moz-animation:  rotatingLoader 600ms infinite linear;
+    -moz-animation:  rotatingLoader 600ms infinite linear;
   }
 }
 
