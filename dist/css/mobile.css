@@ -612,6 +612,10 @@ button {
   -o-appearance: none;
   appearance: none;
 }
+.button:focus,
+button:focus {
+  outline: none !important;
+}
 .button.small,
 button.small {
   line-height: 2.25em;
@@ -657,6 +661,9 @@ button.anchor {
   -o-box-pack: center;
   box-pack: center;
 }
+.notification.op {
+  background-color: rgba(0, 0, 0, 0);
+}
 .notification.push {
   height: auto;
   background: none;
@@ -667,11 +674,6 @@ button.anchor {
   display: -ms-box;
   display: -o-box;
   display: box;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  -ms-box-align: center;
-  -o-box-align: center;
-  box-align: center;
   -webkit-box-pack: center;
   -moz-box-pack: center;
   -ms-box-pack: center;
@@ -709,7 +711,7 @@ button.anchor {
   box-align: start;
 }
 .notification.align-top.push {
-  margin-top: 60px;
+  top: 60px;
 }
 .notification.align-bottom {
   -webkit-box-align: end;
@@ -718,34 +720,61 @@ button.anchor {
   -o-box-align: end;
   box-align: end;
 }
+.notification.align-bottom.push {
+  bottom: 100px;
+}
 @-webkit-keyframes notification_push_hide {
   0% {
     opacity: 1;
-    margin-top: 60px;
+    -webkit-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
   }
   90% {
     opacity: 0;
-    margin-top: 40px;
+    -webkit-transform: translate(0, -20px);
+    -moz-transform: translate(0, -20px);
+    -ms-transform: translate(0, -20px);
+    -o-transform: translate(0, -20px);
+    transform: translate(0, -20px);
   }
   100% {
     display: none;
     opacity: 0;
-    margin-top: 40px;
+    -webkit-transform: translate(0, -20px);
+    -moz-transform: translate(0, -20px);
+    -ms-transform: translate(0, -20px);
+    -o-transform: translate(0, -20px);
+    transform: translate(0, -20px);
   }
 }
 @-moz-keyframes notification_push_hide {
   0% {
     opacity: 1;
-    margin-top: 60px;
+    -webkit-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
   }
   90% {
     opacity: 0;
-    margin-top: 40px;
+    -webkit-transform: translate(0, -20px);
+    -moz-transform: translate(0, -20px);
+    -ms-transform: translate(0, -20px);
+    -o-transform: translate(0, -20px);
+    transform: translate(0, -20px);
   }
   100% {
     display: none;
     opacity: 0;
-    margin-top: 40px;
+    -webkit-transform: translate(0, -20px);
+    -moz-transform: translate(0, -20px);
+    -ms-transform: translate(0, -20px);
+    -o-transform: translate(0, -20px);
+    transform: translate(0, -20px);
   }
 }
 /**
