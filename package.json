@@ -10,9 +10,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "grunt": "*",
-    "grunt-contrib-concat": "*",
-    "grunt-contrib-less": "*",
-    "grunt-contrib-watch": "*"
+    "grunt": "^0.4.5",
+    "grunt-contrib-cssmin": "^0.12.3",
+    "grunt-contrib-less": "^1.0.1",
+    "grunt-contrib-watch": "^0.6.1"
   }
 }

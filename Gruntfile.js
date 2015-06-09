@@ -1,46 +1,35 @@
 module.exports = function(grunt){
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    concat: {
-      less: {
-        src : [
-          'css/less/__init.less',
-          'css/less/base.less',
-          'css/less/layout.less',
-          'css/less/layout.list.less',
-          'css/less/layout.detail.less',
-          'css/less/widget.less',
-          'css/less/widget.notification.less',
-          'css/less/widget.loading.less',
-          'css/less/media.less'
-        ],
-        dest: 'css/dist/mobile.less'
+    less: {
+      compileCore: {
+        options: {
+          compress: false
+        },
+        src: 'less/<%= pkg.name %>.less',
+        dest: 'dist/css/<%= pkg.name %>.css'
       },
-      theme: {
-        src : ['css/less/__init.less', 'css/less/theme.less'],
-        dest: 'css/dist/theme.less'
+      compileTheme: {
+        options: {
+          compress: false
+        },
+        src: 'less/<%= pkg.name %>-theme.less',
+        dest: 'dist/css/<%= pkg.name %>-theme.css'
       }
     },
-    less: {
-      development: {
-        options: {
-          compress: false,
-          yuicompress: false
-        },
-        files: {
-          'css/dist/mobile.css': 'css/dist/mobile.less',
-          'css/dist/theme.css': 'css/dist/theme.less'
-        }
+    cssmin: {
+      options: {
+        compatibility: 'ie8',
+        keepSpecialComments: '*',
+        advanced: false
       },
-      production: {
-        options: {
-          compress: true,
-          yuicompress: true
-        },
-        files: {
-          'css/dist/mobile.min.css': 'css/dist/mobile.less',
-          'css/dist/theme.min.css': 'css/dist/theme.less'
-        }
+      minifyCore: {
+        src: 'dist/css/<%= pkg.name %>.css',
+        dest: 'dist/css/<%= pkg.name %>.min.css'
+      },
+      minifyTheme: {
+        src: 'dist/css/<%= pkg.name %>-theme.css',
+        dest: 'dist/css/<%= pkg.name %>-theme.min.css'
       }
     },
     watch: {
@@ -49,19 +38,18 @@ module.exports = function(grunt){
       },
       css: {
         files: [
-          'css/less/*.less'
+          'less/*.less'
         ],
         tasks: [
-          'concat',
           'less'
         ]
       }
     }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  //grunt.registerTask('watch', ['watch']);
+  grunt.registerTask('pro', ['less', 'cssmin']);
 }
