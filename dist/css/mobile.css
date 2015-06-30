@@ -877,16 +877,16 @@ section.active .loading > span::after,
   transform: rotate(270deg);
 }
 .loading > span::before {
-  -webkit-transform: rotate(30deg);
-  -ms-transform: rotate(30deg);
-  -o-transform: rotate(30deg);
-  transform: rotate(30deg);
-}
-.loading > span::after {
   -webkit-transform: rotate(-30deg);
   -ms-transform: rotate(-30deg);
   -o-transform: rotate(-30deg);
   transform: rotate(-30deg);
+}
+.loading > span::after {
+  -webkit-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  transform: rotate(30deg);
 }
 .loading > span.top {
   -webkit-animation-delay: -1100ms;
