@@ -15,6 +15,24 @@
   display: none;
   background-color: rgba(0,0,0,0.5);
 
+  .window {
+    position: relative;
+    display: none;
+    text-align: center;
+
+    &.show {
+      display: block;
+    }
+
+    &.html {
+      width: 100%;
+      background: #fff;
+    }
+  }
+  .white {
+    background: #fff;
+  }
+
   &.show {
     .display-box();
     .box-align(center);
@@ -35,28 +53,47 @@
       -moz-animation:  notification_push_hide 400ms linear;
       -moz-animation-fill-mode: both;
     }
-  }
 
-  .window {
-    position: relative;
-    display: none;
-    text-align: center;
-
-    &.show {
-      display: block;
-    }
-
-    &.html {
-      width: 100%;
-      background: #fff;
-    }
-
-    &.push {
+    .window {
       width: auto;
       background-color: rgba(0, 0, 0, 0.7);
       border-radius: 4px;
       padding: 10px 15px;
       color: #fff;
+    }
+  }
+
+  &.alert {
+    .window {
+      width: 70%;
+      overflow: hidden;
+
+      > header {
+        padding: 10px;
+      }
+
+      > article {
+        padding: 10px;
+      }
+
+      > footer {
+        .display-box();
+        .box-orient(horizontal);
+        border-top: 1px solid #d3d3d3;
+
+        > button,
+        > .button {
+          display: block;
+          .box-flex(1);
+        }
+
+        > button + button,
+        > button + .button,
+        > .button + button
+        > .button + .button{
+          border-left: 1px solid #d3d3d3;
+        }
+      }
     }
   }
 
@@ -80,31 +117,37 @@
 @-webkit-keyframes notification_push_hide {
   0% {
     opacity: 1;
-    .transform(translate(0, 0));
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
   }
   90% {
     opacity: 0;
-    .transform(translate(0, -20px));
+    -webkit-transform: translate(0, -20px);
+    transform: translate(0, -20px);
   }
   100% {
     display: none;
     opacity: 0;
-    .transform(translate(0, -20px));
+    -webkit-transform: translate(0, -20px);
+    transform: translate(0, -20px);
   }
 }
 
 @-moz-keyframes notification_push_hide {
   0% {
     opacity: 1;
-    .transform(translate(0, 0));
+    -moz-transform: translate(0, 0);
+    transform: translate(0, 0);
   }
   90% {
     opacity: 0;
-    .transform(translate(0, -20px));
+    -moz-transform: translate(0, -20px);
+    transform: translate(0, -20px);
   }
   100% {
     display: none;
     opacity: 0;
-    .transform(translate(0, -20px));
+    -moz-transform: translate(0, -20px);
+    transform: translate(0, -20px);
   }
 }
