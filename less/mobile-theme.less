@@ -121,6 +121,12 @@ html {
   background-size: 100%;
 }
 
+.logo-large img,
+.logo img {
+  width: 100%;
+  display: block;
+}
+
 .app-icon {
   display: inline-block;
   width: @APP_WIDTH;
@@ -181,7 +187,7 @@ button {
   color: @BUTTON_COLOR;
   background-color: @BUTTON_BACKGROUND_COLOR;
 
-  &.active
+  &.active,
   &:hover,
   &:active {
     border-color: @BUTTON_BORDER_COLOR_ACTIVE;

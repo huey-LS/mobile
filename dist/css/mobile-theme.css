@@ -33,6 +33,11 @@ html {
   background-repeat: no-repeat;
   background-size: 100%;
 }
+.logo-large img,
+.logo img {
+  width: 100%;
+  display: block;
+}
 .app-icon {
   display: inline-block;
   width: 22px;
@@ -89,10 +94,10 @@ button {
   color: #079cda;
   background-color: #ffffff;
 }
-.button.active .button:hover,
-.button.active button:hover,
-button.active .button:hover,
-button.active button:hover,
+.button.active,
+button.active,
+.button:hover,
+button:hover,
 .button:active,
 button:active {
   border-color: #079cda;

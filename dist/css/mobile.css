@@ -126,9 +126,9 @@ body {
   user-select: none;
   display: -webkit-box;
   display: -moz-box;
-  display: -ms-box;
-  display: -o-box;
-  display: box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 body * {
   -webkit-box-sizing: border-box;
@@ -182,9 +182,9 @@ body > aside,
 body > section {
   display: -webkit-box;
   display: -moz-box;
-  display: -ms-box;
-  display: -o-box;
-  display: box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: vertical;
   -moz-box-orient: vertical;
   -ms-box-orient: vertical;
@@ -288,9 +288,9 @@ body > aside.active,
 body > aside.show {
   display: -webkit-box;
   display: -moz-box;
-  display: -ms-box;
-  display: -o-box;
-  display: box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 body > aside.show {
   z-index: 0;
@@ -331,9 +331,9 @@ body [data-os=firefoxos] [data-os=blackberry] {
 .list li.thumb {
   display: -webkit-box;
   display: -moz-box;
-  display: -ms-box;
-  display: -o-box;
-  display: box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: horizontal;
   -moz-box-orient: horizontal;
   -ms-box-orient: horizontal;
@@ -416,6 +416,13 @@ body [data-os=firefoxos] [data-os=blackberry] {
 }
 .on-right {
   float: right;
+}
+.flex-box {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 /* =============== Scroll ================ */
 .scroll {
@@ -652,9 +659,9 @@ button.anchor {
 .notification.show {
   display: -webkit-box;
   display: -moz-box;
-  display: -ms-box;
-  display: -o-box;
-  display: box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
   -moz-box-align: center;
   -ms-box-align: center;
@@ -676,9 +683,9 @@ button.anchor {
 .notification.push.hide {
   display: -webkit-box;
   display: -moz-box;
-  display: -ms-box;
-  display: -o-box;
-  display: box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: center;
   -moz-box-pack: center;
   -ms-box-pack: center;
@@ -709,9 +716,9 @@ button.anchor {
 .notification.alert .window > footer {
   display: -webkit-box;
   display: -moz-box;
-  display: -ms-box;
-  display: -o-box;
-  display: box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: horizontal;
   -moz-box-orient: horizontal;
   -ms-box-orient: horizontal;
@@ -981,9 +988,9 @@ section.active .loading > span::after,
   body {
     display: -webkit-box;
     display: -moz-box;
-    display: -ms-box;
-    display: -o-box;
-    display: box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-box-orient: horizontal;
     -moz-box-orient: horizontal;
     -ms-box-orient: horizontal;
