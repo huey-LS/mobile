@@ -10,29 +10,29 @@ body {
      ================================================================ */
   > aside,
   > section {
-    .display-box();
-    .box-orient(vertical);
+    .display-flex();
+    .flex-direction(column);
     height: inherit;
     .translate3d(0,0,0);
 
     > header,
     > footer {
-      .box-flex(0);
+      .flex-grow(0);
       z-index: 3;
       position: relative;
     }
 
     > header {
-      .ordinal-group(1);
+      .order(1);
     }
 
     > article {
-      .box-flex(1);
-      .ordinal-group(2);
+      .flex-grow(1);
+      .order(2);
     }
 
     > footer {
-      .ordinal-group(3);
+      .order(3);
     }
 
     /* ================ HEADER/FOOTER ================ */
@@ -42,7 +42,7 @@ body {
       line-height: @HEADER_HEIGHT;
 
       > nav {
-        .box-flex(0);
+        .flex-grow(0);
       }
     }
 
@@ -86,7 +86,7 @@ body {
 
     &.active,
     &.show {
-      .display-box();
+      .display-flex();
     }
     &.show {
       z-index: 0;

@@ -22,36 +22,65 @@
   > span {
     left: 50%;
     margin-left: -0.05em;
+  }
 
-    &, &::before, &::after {
-      display: block;
-      position: absolute;
-      width: .05em;
-      height: .25em;
-      top: 0;
-      .transform-origin(.05em .5em);
-      .border-radius(.1em);
-
-      section.show &, section.active &, .notification & {
-        .animation(rotatingLoader 1200ms infinite linear);
-      }
+  > span, > span::before, > span::after, > i {
+    content: " ";
+    display: inline-block;
+    position: absolute;
+    width: .05em;
+    height: .25em;
+    top: 0;
+    .transform-origin(.05em .5em);
+    .border-radius(.1em);
+    .animation(rotatingLoader 1200ms infinite linear);
+  }
+  &.white {
+    > span, > span::before, > span::after, > i {
+      .animation(rotatingLoaderWhite 1200ms infinite linear);
     }
-
-    &::before, &::after {
-      content: " ";
-    }
-
+  }
+  > span {
     &.top {
       .rotate(0deg);
+      .animation-delay(-1100ms);
+
+      &::after {
+        .animation-delay(-1000ms);
+      }
     }
     &.right {
       .rotate(90deg);
+      .animation-delay(-800ms);
+
+      &::before {
+        .animation-delay(-900ms);
+      }
+      &::after {
+        .animation-delay(-700ms);
+      }
     }
     &.bottom {
       .rotate(180deg);
+      .animation-delay(-500ms);
+
+      &::before {
+        .animation-delay(-600ms);
+      }
+      &::after {
+        .animation-delay(-400ms);
+      }
     }
     &.left {
       .rotate(270deg);
+      .animation-delay(-200ms);
+
+      &::before {
+        .animation-delay(-300ms);
+      }
+      &::after {
+        .animation-delay(-100ms);
+      }
     }
     &::before {
       .rotate(-30deg);
@@ -59,57 +88,95 @@
     &::after {
       .rotate(30deg);
     }
-
-    &.top {
+  }
+  > i {
+    &.circle1 {
+      .rotate(-30deg);
+    }
+    &.circle2 {
+      .rotate(0deg);
       .animation-delay(-1100ms);
     }
-    &.top::after {
+    &.circle3 {
+      .rotate(30deg);
       .animation-delay(-1000ms);
     }
-    &.right::before {
+    &.circle4 {
+      .rotate(60deg);
       .animation-delay(-900ms);
     }
-    &.right {
+    &.circle5 {
+      .rotate(90deg);
       .animation-delay(-800ms);
     }
-    &.right::after {
+    &.circle6 {
+      .rotate(120deg);
       .animation-delay(-700ms);
     }
-    &.bottom::before {
+    &.circle7 {
+      .rotate(150deg);
       .animation-delay(-600ms);
     }
-    &.bottom {
+    &.circle8 {
+      .rotate(180deg);
       .animation-delay(-500ms);
     }
-    &.bottom::after {
+    &.circle9 {
+      .rotate(210deg);
       .animation-delay(-400ms);
     }
-    &.left::before {
+    &.circle10 {
+      .rotate(240deg);
       .animation-delay(-300ms);
     }
-    &.left {
+    &.circle11 {
+      .rotate(270deg);
       .animation-delay(-200ms);
     }
-    &.left::after {
+    &.circle12 {
+      .rotate(300deg);
       .animation-delay(-100ms);
     }
   }
 }
 
 @-webkit-keyframes rotatingLoader {
-  0%, 50%, 100% {
+  0%,
+  50%,
+  100% {
     background-color: rgba(0, 0, 0, 0.15);
   }
   25% {
     background-color: rgba(0, 0, 0, 0.99);
   }
 }
-
 @-moz-keyframes rotatingLoader {
-  0%, 50%, 100% {
+  0%,
+  50%,
+  100% {
     background-color: rgba(0, 0, 0, 0.15);
   }
   25% {
     background-color: rgba(0, 0, 0, 0.99);
+  }
+}
+@-webkit-keyframes rotatingLoaderWhite {
+  0%,
+  50%,
+  100% {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+  25% {
+    background-color: rgba(255, 255, 255, 0.99);
+  }
+}
+@-moz-keyframes rotatingLoaderWhite {
+  0%,
+  50%,
+  100% {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+  25% {
+    background-color: rgba(255, 255, 255, 0.99);
   }
 }

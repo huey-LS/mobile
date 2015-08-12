@@ -126,8 +126,8 @@ body {
   user-select: none;
   display: -webkit-box;
   display: -moz-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
 }
 body * {
@@ -182,14 +182,16 @@ body > aside,
 body > section {
   display: -webkit-box;
   display: -moz-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
   -webkit-box-orient: vertical;
   -moz-box-orient: vertical;
-  -ms-box-orient: vertical;
-  -o-box-orient: vertical;
-  box-orient: vertical;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column;
   height: inherit;
   -webkit-transform: translate3d(0, 0, 0);
   -ms-transform: translate3d(0, 0, 0);
@@ -204,9 +206,9 @@ body > aside > footer,
 body > section > footer {
   -webkit-box-flex: 0;
   -moz-box-flex: 0;
-  -ms-box-flex: 0;
-  -o-box-flex: 0;
-  box-flex: 0;
+  -ms-flex-grow: 0;
+  -webkit-flex-grow: 0;
+  flex-grow: 0;
   z-index: 3;
   position: relative;
 }
@@ -214,30 +216,30 @@ body > aside > header,
 body > section > header {
   -webkit-box-ordinal-group: 1;
   -moz-box-ordinal-group: 1;
-  -ms-box-ordinal-group: 1;
-  -o-box-ordinal-group: 1;
-  box-ordinal-group: 1;
+  -ms-flex-order: 1;
+  -webkit-order: 1;
+  order: 1;
 }
 body > aside > article,
 body > section > article {
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
-  -ms-box-flex: 1;
-  -o-box-flex: 1;
-  box-flex: 1;
+  -ms-flex-grow: 1;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
   -webkit-box-ordinal-group: 2;
   -moz-box-ordinal-group: 2;
-  -ms-box-ordinal-group: 2;
-  -o-box-ordinal-group: 2;
-  box-ordinal-group: 2;
+  -ms-flex-order: 2;
+  -webkit-order: 2;
+  order: 2;
 }
 body > aside > footer,
 body > section > footer {
   -webkit-box-ordinal-group: 3;
   -moz-box-ordinal-group: 3;
-  -ms-box-ordinal-group: 3;
-  -o-box-ordinal-group: 3;
-  box-ordinal-group: 3;
+  -ms-flex-order: 3;
+  -webkit-order: 3;
+  order: 3;
 }
 body > aside > header,
 body > section > header,
@@ -252,9 +254,9 @@ body > aside > footer > nav,
 body > section > footer > nav {
   -webkit-box-flex: 0;
   -moz-box-flex: 0;
-  -ms-box-flex: 0;
-  -o-box-flex: 0;
-  box-flex: 0;
+  -ms-flex-grow: 0;
+  -webkit-flex-grow: 0;
+  flex-grow: 0;
 }
 body > aside > article,
 body > section > article {
@@ -288,8 +290,8 @@ body > aside.active,
 body > aside.show {
   display: -webkit-box;
   display: -moz-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
 }
 body > aside.show {
@@ -331,21 +333,23 @@ body [data-os=firefoxos] [data-os=blackberry] {
 .list li.thumb {
   display: -webkit-box;
   display: -moz-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
   -webkit-box-orient: horizontal;
   -moz-box-orient: horizontal;
-  -ms-box-orient: horizontal;
-  -o-box-orient: horizontal;
-  box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-direction: row;
 }
 .list li.thumb > div {
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
-  -ms-box-flex: 1;
-  -o-box-flex: 1;
-  box-flex: 1;
+  -ms-flex-grow: 1;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
 }
 .list li:not(.big) {
   padding: .8em;
@@ -420,8 +424,8 @@ body [data-os=firefoxos] [data-os=blackberry] {
 .flex-box {
   display: -webkit-box;
   display: -moz-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
 }
 /* =============== Scroll ================ */
@@ -659,19 +663,19 @@ button.anchor {
 .notification.show {
   display: -webkit-box;
   display: -moz-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
   -webkit-box-align: center;
   -moz-box-align: center;
-  -ms-box-align: center;
-  -o-box-align: center;
-  box-align: center;
+  -ms-align-items: center;
+  -webkit-align-items: center;
+  align-items: center;
   -webkit-box-pack: center;
   -moz-box-pack: center;
-  -ms-box-pack: center;
-  -o-box-pack: center;
-  box-pack: center;
+  -ms-justify-content: center;
+  -webkit-justify-content: center;
+  justify-content: center;
 }
 .notification.op {
   background-color: rgba(0, 0, 0, 0);
@@ -683,14 +687,14 @@ button.anchor {
 .notification.push.hide {
   display: -webkit-box;
   display: -moz-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
   -webkit-box-pack: center;
   -moz-box-pack: center;
-  -ms-box-pack: center;
-  -o-box-pack: center;
-  box-pack: center;
+  -ms-justify-content: center;
+  -webkit-justify-content: center;
+  justify-content: center;
   -webkit-animation: notification_push_hide 400ms linear;
   -webkit-animation-fill-mode: both;
   -moz-animation: notification_push_hide 400ms linear;
@@ -716,14 +720,16 @@ button.anchor {
 .notification.alert .window > footer {
   display: -webkit-box;
   display: -moz-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
   -webkit-box-orient: horizontal;
   -moz-box-orient: horizontal;
-  -ms-box-orient: horizontal;
-  -o-box-orient: horizontal;
-  box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-direction: row;
   border-top: 1px solid #d3d3d3;
 }
 .notification.alert .window > footer > button,
@@ -731,9 +737,9 @@ button.anchor {
   display: block;
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
-  -ms-box-flex: 1;
-  -o-box-flex: 1;
-  box-flex: 1;
+  -ms-flex-grow: 1;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
 }
 .notification.alert .window > footer > button + button,
 .notification.alert .window > footer > button + .button,
@@ -741,21 +747,25 @@ button.anchor {
   border-left: 1px solid #d3d3d3;
 }
 .notification.align-top {
+  -webkit-box-align: flex-start;
+  -moz-box-align: flex-start;
   -webkit-box-align: start;
   -moz-box-align: start;
-  -ms-box-align: start;
-  -o-box-align: start;
-  box-align: start;
+  -ms-align-items: flex-start;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
 }
 .notification.align-top.push {
   top: 60px;
 }
 .notification.align-bottom {
+  -webkit-box-align: flex-end;
+  -moz-box-align: flex-end;
   -webkit-box-align: end;
   -moz-box-align: end;
-  -ms-box-align: end;
-  -o-box-align: end;
-  box-align: end;
+  -ms-align-items: flex-end;
+  -webkit-align-items: flex-end;
+  align-items: flex-end;
 }
 .notification.align-bottom.push {
   bottom: 100px;
@@ -826,8 +836,10 @@ button.anchor {
 }
 .loading > span,
 .loading > span::before,
-.loading > span::after {
-  display: block;
+.loading > span::after,
+.loading > i {
+  content: " ";
+  display: inline-block;
   position: absolute;
   width: .05em;
   height: .25em;
@@ -841,47 +853,88 @@ button.anchor {
   -ms-border-radius: 0.1em;
   -o-border-radius: 0.1em;
   border-radius: 0.1em;
-}
-section.show .loading > span,
-section.show .loading > span::before,
-section.show .loading > span::after,
-section.active .loading > span,
-section.active .loading > span::before,
-section.active .loading > span::after,
-.notification .loading > span,
-.notification .loading > span::before,
-.notification .loading > span::after {
   -webkit-animation: rotatingLoader 1200ms infinite linear;
   -moz-animation: rotatingLoader 1200ms infinite linear;
   animation: rotatingLoader 1200ms infinite linear;
 }
-.loading > span::before,
-.loading > span::after {
-  content: " ";
+.loading.white > span,
+.loading.white > span::before,
+.loading.white > span::after,
+.loading.white > i {
+  -webkit-animation: rotatingLoaderWhite 1200ms infinite linear;
+  -moz-animation: rotatingLoaderWhite 1200ms infinite linear;
+  animation: rotatingLoaderWhite 1200ms infinite linear;
 }
 .loading > span.top {
   -webkit-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
   -o-transform: rotate(0deg);
   transform: rotate(0deg);
+  -webkit-animation-delay: -1100ms;
+  -moz-animation-delay: -1100ms;
+  animation-delay: -1100ms;
+}
+.loading > span.top::after {
+  -webkit-animation-delay: -1000ms;
+  -moz-animation-delay: -1000ms;
+  animation-delay: -1000ms;
 }
 .loading > span.right {
   -webkit-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   -o-transform: rotate(90deg);
   transform: rotate(90deg);
+  -webkit-animation-delay: -800ms;
+  -moz-animation-delay: -800ms;
+  animation-delay: -800ms;
+}
+.loading > span.right::before {
+  -webkit-animation-delay: -900ms;
+  -moz-animation-delay: -900ms;
+  animation-delay: -900ms;
+}
+.loading > span.right::after {
+  -webkit-animation-delay: -700ms;
+  -moz-animation-delay: -700ms;
+  animation-delay: -700ms;
 }
 .loading > span.bottom {
   -webkit-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   -o-transform: rotate(180deg);
   transform: rotate(180deg);
+  -webkit-animation-delay: -500ms;
+  -moz-animation-delay: -500ms;
+  animation-delay: -500ms;
+}
+.loading > span.bottom::before {
+  -webkit-animation-delay: -600ms;
+  -moz-animation-delay: -600ms;
+  animation-delay: -600ms;
+}
+.loading > span.bottom::after {
+  -webkit-animation-delay: -400ms;
+  -moz-animation-delay: -400ms;
+  animation-delay: -400ms;
 }
 .loading > span.left {
   -webkit-transform: rotate(270deg);
   -ms-transform: rotate(270deg);
   -o-transform: rotate(270deg);
   transform: rotate(270deg);
+  -webkit-animation-delay: -200ms;
+  -moz-animation-delay: -200ms;
+  animation-delay: -200ms;
+}
+.loading > span.left::before {
+  -webkit-animation-delay: -300ms;
+  -moz-animation-delay: -300ms;
+  animation-delay: -300ms;
+}
+.loading > span.left::after {
+  -webkit-animation-delay: -100ms;
+  -moz-animation-delay: -100ms;
+  animation-delay: -100ms;
 }
 .loading > span::before {
   -webkit-transform: rotate(-30deg);
@@ -895,57 +948,107 @@ section.active .loading > span::after,
   -o-transform: rotate(30deg);
   transform: rotate(30deg);
 }
-.loading > span.top {
+.loading > i.circle1 {
+  -webkit-transform: rotate(-30deg);
+  -ms-transform: rotate(-30deg);
+  -o-transform: rotate(-30deg);
+  transform: rotate(-30deg);
+}
+.loading > i.circle2 {
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
   -webkit-animation-delay: -1100ms;
   -moz-animation-delay: -1100ms;
   animation-delay: -1100ms;
 }
-.loading > span.top::after {
+.loading > i.circle3 {
+  -webkit-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  transform: rotate(30deg);
   -webkit-animation-delay: -1000ms;
   -moz-animation-delay: -1000ms;
   animation-delay: -1000ms;
 }
-.loading > span.right::before {
+.loading > i.circle4 {
+  -webkit-transform: rotate(60deg);
+  -ms-transform: rotate(60deg);
+  -o-transform: rotate(60deg);
+  transform: rotate(60deg);
   -webkit-animation-delay: -900ms;
   -moz-animation-delay: -900ms;
   animation-delay: -900ms;
 }
-.loading > span.right {
+.loading > i.circle5 {
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
   -webkit-animation-delay: -800ms;
   -moz-animation-delay: -800ms;
   animation-delay: -800ms;
 }
-.loading > span.right::after {
+.loading > i.circle6 {
+  -webkit-transform: rotate(120deg);
+  -ms-transform: rotate(120deg);
+  -o-transform: rotate(120deg);
+  transform: rotate(120deg);
   -webkit-animation-delay: -700ms;
   -moz-animation-delay: -700ms;
   animation-delay: -700ms;
 }
-.loading > span.bottom::before {
+.loading > i.circle7 {
+  -webkit-transform: rotate(150deg);
+  -ms-transform: rotate(150deg);
+  -o-transform: rotate(150deg);
+  transform: rotate(150deg);
   -webkit-animation-delay: -600ms;
   -moz-animation-delay: -600ms;
   animation-delay: -600ms;
 }
-.loading > span.bottom {
+.loading > i.circle8 {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
   -webkit-animation-delay: -500ms;
   -moz-animation-delay: -500ms;
   animation-delay: -500ms;
 }
-.loading > span.bottom::after {
+.loading > i.circle9 {
+  -webkit-transform: rotate(210deg);
+  -ms-transform: rotate(210deg);
+  -o-transform: rotate(210deg);
+  transform: rotate(210deg);
   -webkit-animation-delay: -400ms;
   -moz-animation-delay: -400ms;
   animation-delay: -400ms;
 }
-.loading > span.left::before {
+.loading > i.circle10 {
+  -webkit-transform: rotate(240deg);
+  -ms-transform: rotate(240deg);
+  -o-transform: rotate(240deg);
+  transform: rotate(240deg);
   -webkit-animation-delay: -300ms;
   -moz-animation-delay: -300ms;
   animation-delay: -300ms;
 }
-.loading > span.left {
+.loading > i.circle11 {
+  -webkit-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  transform: rotate(270deg);
   -webkit-animation-delay: -200ms;
   -moz-animation-delay: -200ms;
   animation-delay: -200ms;
 }
-.loading > span.left::after {
+.loading > i.circle12 {
+  -webkit-transform: rotate(300deg);
+  -ms-transform: rotate(300deg);
+  -o-transform: rotate(300deg);
+  transform: rotate(300deg);
   -webkit-animation-delay: -100ms;
   -moz-animation-delay: -100ms;
   animation-delay: -100ms;
@@ -970,6 +1073,26 @@ section.active .loading > span::after,
     background-color: rgba(0, 0, 0, 0.99);
   }
 }
+@-webkit-keyframes rotatingLoaderWhite {
+  0%,
+  50%,
+  100% {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+  25% {
+    background-color: rgba(255, 255, 255, 0.99);
+  }
+}
+@-moz-keyframes rotatingLoaderWhite {
+  0%,
+  50%,
+  100% {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+  25% {
+    background-color: rgba(255, 255, 255, 0.99);
+  }
+}
 /* ==== Any phone ==== */
 @media only screen and (max-width: 767px) {
   body[data-position="absolute"] > section {
@@ -988,14 +1111,16 @@ section.active .loading > span::after,
   body {
     display: -webkit-box;
     display: -moz-box;
-    display: -webkit-flex;
     display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
     -webkit-box-orient: horizontal;
     -moz-box-orient: horizontal;
-    -ms-box-orient: horizontal;
-    -o-box-orient: horizontal;
-    box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
     overflow: hidden;
   }
   body > section:not(.show) {
