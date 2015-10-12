@@ -1,4 +1,6 @@
 module.exports = function(grunt){
+  var path = require('path');
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     less: {
@@ -32,6 +34,20 @@ module.exports = function(grunt){
         dest: 'dist/css/<%= pkg.name %>-theme.min.css'
       }
     },
+    uglify: {
+      complieJS: {
+        files: {
+          'dist/js/<%= pkg.name %>.js': [],
+          'dist/js/<%= pkg.name %>-initialize.js': ['js/<%= pkg.name %>-initialize.js']
+        }
+      },
+      minifyJS: {
+        files: {
+          'dist/js/<%= pkg.name %>.min.js': ['dist/js/<%= pkg.name %>.js'],
+          'dist/js/<%= pkg.name %>-initialize.min.js': ['dist/js/<%= pkg.name %>-initialize.js']
+        }
+      }
+    },
     watch: {
       options: {
         atBegin: true
@@ -43,13 +59,22 @@ module.exports = function(grunt){
         tasks: [
           'less'
         ]
+      },
+      js: {
+        files: [
+          'js/*.js'
+        ],
+        tasks: [
+          'uglify:complieJS'
+        ]
       }
     }
   });
 
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('pro', ['less', 'cssmin']);
+  grunt.registerTask('pro', ['less', 'cssmin', 'uglify']);
 }

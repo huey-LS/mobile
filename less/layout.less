@@ -15,11 +15,18 @@ body {
     height: inherit;
     .translate3d(0,0,0);
 
+    /* ================ HEADER/FOOTER ================ */
     > header,
     > footer {
       .flex-grow(0);
       z-index: 3;
       position: relative;
+      height: @HEADER_HEIGHT;
+      line-height: @HEADER_HEIGHT;
+
+      > nav {
+        .flex-grow(0);
+      }
     }
 
     > header {
@@ -35,16 +42,6 @@ body {
       .order(3);
     }
 
-    /* ================ HEADER/FOOTER ================ */
-    > header,
-    > footer {
-      height: @HEADER_HEIGHT;
-      line-height: @HEADER_HEIGHT;
-
-      > nav {
-        .flex-grow(0);
-      }
-    }
 
     /* ================ ARTICLE ================ */
     > article {
@@ -52,7 +49,7 @@ body {
       display: none;
     }
     &.show > article.active,
-    &.hide > article.active
+    &.hide > article.active,
     &.hiding > article.active {
       visibility: visible;
       display: block;
@@ -79,10 +76,6 @@ body {
     width: @ASIDE_WIDTH;
     display: none;
     z-index: -1;
-
-    > header {
-
-    }
 
     &.active,
     &.show {

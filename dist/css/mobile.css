@@ -211,6 +211,18 @@ body > section > footer {
   flex-grow: 0;
   z-index: 3;
   position: relative;
+  height: 46px;
+  line-height: 46px;
+}
+body > aside > header > nav,
+body > section > header > nav,
+body > aside > footer > nav,
+body > section > footer > nav {
+  -webkit-box-flex: 0;
+  -moz-box-flex: 0;
+  -ms-flex-grow: 0;
+  -webkit-flex-grow: 0;
+  flex-grow: 0;
 }
 body > aside > header,
 body > section > header {
@@ -241,23 +253,6 @@ body > section > footer {
   -webkit-order: 3;
   order: 3;
 }
-body > aside > header,
-body > section > header,
-body > aside > footer,
-body > section > footer {
-  height: 46px;
-  line-height: 46px;
-}
-body > aside > header > nav,
-body > section > header > nav,
-body > aside > footer > nav,
-body > section > footer > nav {
-  -webkit-box-flex: 0;
-  -moz-box-flex: 0;
-  -ms-flex-grow: 0;
-  -webkit-flex-grow: 0;
-  flex-grow: 0;
-}
 body > aside > article,
 body > section > article {
   visibility: hidden;
@@ -265,10 +260,10 @@ body > section > article {
 }
 body > aside.show > article.active,
 body > section.show > article.active,
-body > aside.hide > article.active body > aside.hiding > article.active,
-body > aside.hide > article.active body > section.hiding > article.active,
-body > section.hide > article.active body > aside.hiding > article.active,
-body > section.hide > article.active body > section.hiding > article.active {
+body > aside.hide > article.active,
+body > section.hide > article.active,
+body > aside.hiding > article.active,
+body > section.hiding > article.active {
   visibility: visible;
   display: block;
   z-index: 1;
