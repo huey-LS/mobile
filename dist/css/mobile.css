@@ -209,6 +209,9 @@ body > section > footer {
   -ms-flex-grow: 0;
   -webkit-flex-grow: 0;
   flex-grow: 0;
+  -ms-flex-shrink: 0;
+  -webkit-flex-shrink: 0;
+  flex-shrink: 0;
   z-index: 3;
   position: relative;
   height: 46px;
@@ -223,6 +226,9 @@ body > section > footer > nav {
   -ms-flex-grow: 0;
   -webkit-flex-grow: 0;
   flex-grow: 0;
+  -ms-flex-shrink: 0;
+  -webkit-flex-shrink: 0;
+  flex-shrink: 0;
 }
 body > aside > header,
 body > section > header {
@@ -239,6 +245,9 @@ body > section > article {
   -ms-flex-grow: 1;
   -webkit-flex-grow: 1;
   flex-grow: 1;
+  -ms-flex-shrink: 1;
+  -webkit-flex-shrink: 1;
+  flex-shrink: 1;
   -webkit-box-ordinal-group: 2;
   -moz-box-ordinal-group: 2;
   -ms-flex-order: 2;
@@ -265,9 +274,16 @@ body > section.hide > article.active,
 body > aside.hiding > article.active,
 body > section.hiding > article.active {
   visibility: visible;
-  display: block;
   z-index: 1;
   height: inherit;
+}
+body > aside.show > article.active:not(.flex-box),
+body > section.show > article.active:not(.flex-box),
+body > aside.hide > article.active:not(.flex-box),
+body > section.hide > article.active:not(.flex-box),
+body > aside.hiding > article.active:not(.flex-box),
+body > section.hiding > article.active:not(.flex-box) {
+  display: block;
 }
 body > section {
   width: inherit;
@@ -345,6 +361,9 @@ body [data-os=firefoxos] [data-os=blackberry] {
   -ms-flex-grow: 1;
   -webkit-flex-grow: 1;
   flex-grow: 1;
+  -ms-flex-shrink: 1;
+  -webkit-flex-shrink: 1;
+  flex-shrink: 1;
 }
 .list li:not(.big) {
   padding: .8em;
@@ -423,6 +442,78 @@ body [data-os=firefoxos] [data-os=blackberry] {
   display: -webkit-flex;
   display: flex;
 }
+.flex-box > .flex-order-first:not(.flex-box),
+.flex-box > .flex-order-middle:not(.flex-box),
+.flex-box > .flex-order-last:not(.flex-box),
+.flex-box > .flex-order-first:not(.hidden),
+.flex-box > .flex-order-middle:not(.hidden),
+.flex-box > .flex-order-last:not(.hidden) {
+  display: block;
+}
+.flex-scale {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -ms-flex-grow: 1;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  -ms-flex-shrink: 1;
+  -webkit-flex-shrink: 1;
+  flex-shrink: 1;
+}
+.un-flex-scale {
+  -webkit-box-flex: 0;
+  -moz-box-flex: 0;
+  -ms-flex-grow: 0;
+  -webkit-flex-grow: 0;
+  flex-grow: 0;
+  -ms-flex-shrink: 0;
+  -webkit-flex-shrink: 0;
+  flex-shrink: 0;
+}
+.flex-order-first {
+  -webkit-box-ordinal-group: 1;
+  -moz-box-ordinal-group: 1;
+  -ms-flex-order: 1;
+  -webkit-order: 1;
+  order: 1;
+}
+.flex-order-middle {
+  -webkit-box-ordinal-group: 2;
+  -moz-box-ordinal-group: 2;
+  -ms-flex-order: 2;
+  -webkit-order: 2;
+  order: 2;
+}
+.flex-order-last {
+  -webkit-box-ordinal-group: 3;
+  -moz-box-ordinal-group: 3;
+  -ms-flex-order: 3;
+  -webkit-order: 3;
+  order: 3;
+}
+.flex-direction-column {
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+.flex-direction-row {
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 /* =============== Scroll ================ */
 .scroll {
   overflow-x: hidden;
@@ -487,7 +578,10 @@ form label.select,
   transition: all 100ms linear;
   font-family: inherit;
   -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   -webkit-user-select: text;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 form input[type="text"]:not(.border),
 .form input[type="text"]:not(.border),
@@ -607,6 +701,7 @@ button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 .button:focus,
 button:focus {
@@ -639,6 +734,16 @@ button.anchor {
   z-index: 1980;
   display: none;
   background-color: rgba(0, 0, 0, 0.5);
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-align-items: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-justify-content: center;
+  -webkit-justify-content: center;
+  justify-content: center;
 }
 .notification .window {
   position: relative;
@@ -661,22 +766,11 @@ button.anchor {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  -ms-align-items: center;
-  -webkit-align-items: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -moz-box-pack: center;
-  -ms-justify-content: center;
-  -webkit-justify-content: center;
-  justify-content: center;
 }
 .notification.op {
   background-color: rgba(0, 0, 0, 0);
 }
 .notification.push {
-  height: auto;
   background: none;
 }
 .notification.push.hide {
@@ -685,11 +779,6 @@ button.anchor {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  -webkit-box-pack: center;
-  -moz-box-pack: center;
-  -ms-justify-content: center;
-  -webkit-justify-content: center;
-  justify-content: center;
   -webkit-animation: notification_push_hide 400ms linear;
   -webkit-animation-fill-mode: both;
   -moz-animation: notification_push_hide 400ms linear;
@@ -697,13 +786,15 @@ button.anchor {
 }
 .notification.push .window {
   width: auto;
+  max-width: 80%;
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 4px;
   padding: 10px 15px;
   color: #fff;
 }
 .notification.alert .window {
-  width: 70%;
+  width: 80%;
+  max-width: 360px;
   overflow: hidden;
 }
 .notification.alert .window > header {
@@ -735,6 +826,9 @@ button.anchor {
   -ms-flex-grow: 1;
   -webkit-flex-grow: 1;
   flex-grow: 1;
+  -ms-flex-shrink: 1;
+  -webkit-flex-shrink: 1;
+  flex-shrink: 1;
 }
 .notification.alert .window > footer > button + button,
 .notification.alert .window > footer > button + .button,
@@ -751,7 +845,7 @@ button.anchor {
   align-items: flex-start;
 }
 .notification.align-top.push {
-  top: 60px;
+  padding-top: 10%;
 }
 .notification.align-bottom {
   -webkit-box-align: flex-end;
@@ -763,7 +857,7 @@ button.anchor {
   align-items: flex-end;
 }
 .notification.align-bottom.push {
-  bottom: 100px;
+  padding-bottom: 10%;
 }
 @-webkit-keyframes notification_push_hide {
   0% {

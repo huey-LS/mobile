@@ -63,6 +63,11 @@
   -webkit-flex-shrink: @value;
   flex-shrink: @value;
 }
+// keep the same in all browsers
+.flex-scale(@value) {
+  .flex-grow(@value);
+  .flex-shrink(@value);
+}
 // not support old
 .flex-basis(@value) {
   -ms-flex-basis: @value;

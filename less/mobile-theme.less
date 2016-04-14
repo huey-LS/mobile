@@ -102,6 +102,9 @@ html {
   font-family: @FONT_FAMILY;
   color: @TEXT_COLOR;
 }
+body {
+  font-size: 16px;
+}
 
 .logo {
   display: inline-block;
@@ -191,6 +194,10 @@ button {
   &:active {
     border-color: @BUTTON_BORDER_COLOR_ACTIVE;
     background-color: @BUTTON_BACKGROUND_COLOR_ACTIVE;
+  }
+
+  &:not(.border) {
+    border-width: 0;
   }
 }
 .button-primary {
@@ -330,4 +337,45 @@ a,
 
 .border-radius {
   .border-radius(@BORDER_RADIUS);
+}
+
+.notification {
+  &.alert {
+    .window {
+      > article {
+        padding: 20px;
+      }
+
+      > footer {
+
+        &.only {
+          display: block;
+          padding-bottom: 20px;
+          border: 0;
+          text-align: center;
+        }
+
+        .button {
+          display: inline-block;
+          font-size: 15px;
+          padding: 0 2.5em;
+        }
+      }
+    }
+  }
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  color:    #ccc;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color:    #ccc;
+  opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color:    #ccc;
+  opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color:    #ccc;
 }

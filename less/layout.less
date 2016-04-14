@@ -18,14 +18,14 @@ body {
     /* ================ HEADER/FOOTER ================ */
     > header,
     > footer {
-      .flex-grow(0);
+      .flex-scale(0);
       z-index: 3;
       position: relative;
       height: @HEADER_HEIGHT;
       line-height: @HEADER_HEIGHT;
 
       > nav {
-        .flex-grow(0);
+        .flex-scale(0);
       }
     }
 
@@ -34,7 +34,7 @@ body {
     }
 
     > article {
-      .flex-grow(1);
+      .flex-scale(1);
       .order(2);
     }
 
@@ -52,9 +52,12 @@ body {
     &.hide > article.active,
     &.hiding > article.active {
       visibility: visible;
-      display: block;
       z-index: 1;
       height: inherit;
+
+      &:not(.flex-box){
+        display: block;
+      }
     }
   }
 

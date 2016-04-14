@@ -17,6 +17,9 @@ html {
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   color: #707070;
 }
+body {
+  font-size: 16px;
+}
 .logo {
   display: inline-block;
   width: 97px;
@@ -74,7 +77,7 @@ input[type="tel"],
 input[type="time"],
 input[type="url"] {
   border-color: #d3d3d3;
-  background-color: #ffffff;
+  background-color: #fff;
 }
 input[type="text"]:focus,
 input[type="password"]:focus,
@@ -92,18 +95,22 @@ input[type="url"]:focus {
 button {
   border-color: #d3d3d3;
   color: #079cda;
-  background-color: #ffffff;
+  background-color: #fff;
 }
 .button.active,
 button.active,
 .button:active,
 button:active {
   border-color: #079cda;
-  background-color: #ffffff;
+  background-color: #fff;
+}
+.button:not(.border),
+button:not(.border) {
+  border-width: 0;
 }
 .button-primary {
   border-color: #0589c0;
-  color: #ffffff;
+  color: #fff;
   background-color: #079cda;
 }
 .button-primary.active,
@@ -114,7 +121,7 @@ button:active {
 .button-cancel {
   border-color: #d9d9d9;
   color: #404040;
-  background-color: #ffffff;
+  background-color: #fff;
 }
 .button-cancel.active,
 .button-cancel:active {
@@ -123,7 +130,7 @@ button:active {
 }
 .button-ios {
   border-color: #0589c0;
-  color: #ffffff;
+  color: #fff;
   background-color: #079cda;
 }
 .button-ios.active,
@@ -133,7 +140,7 @@ button:active {
 }
 .button-android {
   border-color: #53ad13;
-  color: #ffffff;
+  color: #fff;
   background-color: #53c22d;
 }
 .button-android.active,
@@ -142,7 +149,7 @@ button:active {
   background-color: #aee29c;
 }
 .list li.thumb {
-  background-color: #ffffff;
+  background-color: #fff;
 }
 .list li.thumb.border,
 .list li.thumb.border-top,
@@ -220,4 +227,36 @@ a,
   -ms-border-radius: 4px;
   -o-border-radius: 4px;
   border-radius: 4px;
+}
+.notification.alert .window > article {
+  padding: 20px;
+}
+.notification.alert .window > footer.only {
+  display: block;
+  padding-bottom: 20px;
+  border: 0;
+  text-align: center;
+}
+.notification.alert .window > footer .button {
+  display: inline-block;
+  font-size: 15px;
+  padding: 0 2.5em;
+}
+::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: #ccc;
+}
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #ccc;
+  opacity: 1;
+}
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #ccc;
+  opacity: 1;
+}
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #ccc;
 }

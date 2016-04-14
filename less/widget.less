@@ -26,6 +26,41 @@
 }
 .flex-box {
   .display-flex();
+
+  & > .flex-order-first,
+  & > .flex-order-middle,
+  & > .flex-order-last {
+    &:not(.flex-box),
+    &:not(.hidden) {
+      display: block;
+    }
+  }
+}
+.flex-scale {
+  .flex-scale(1);
+}
+.un-flex-scale {
+  .flex-scale(0);
+}
+.flex-order-first {
+  .order(1);
+}
+.flex-order-middle {
+  .order(2);
+}
+.flex-order-last {
+  .order(3);
+}
+.flex-direction-column {
+  .flex-direction(column);
+}
+.flex-direction-row {
+  .flex-direction(row);
+}
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* =============== Scroll ================ */
@@ -67,8 +102,11 @@ form,
     padding: 0 0.5em;
     .transition(all 100ms linear);
     font-family: inherit;
-    -webkit-appearance: none;
+    .appearance(none);
     -webkit-user-select: text;
+    /* 移除ios中选中的灰色框效果 */
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
     &:not(.border) {
       border: 0;
     }
@@ -90,6 +128,7 @@ button {
   display: inline-block;
   line-height: 2.5em;
   .appearance(none);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
   &:focus {
     outline: none !important;
