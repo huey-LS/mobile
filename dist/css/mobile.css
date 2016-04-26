@@ -517,7 +517,7 @@ body [data-os=firefoxos] [data-os=blackberry] {
 /* =============== Scroll ================ */
 .scroll {
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
 /* =============== Form =============== */
@@ -581,6 +581,7 @@ form label.select,
   -moz-appearance: none;
   appearance: none;
   -webkit-user-select: text;
+  /* 移除ios中选中的灰色框效果 */
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 form input[type="text"]:not(.border),
